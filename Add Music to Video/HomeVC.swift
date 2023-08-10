@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,GADBannerViewDelegate {
 
-    @IBOutlet weak var BannerView: UIView!
+    @IBOutlet weak var BannerView: GADBannerView!
+    
     @IBOutlet weak var appReferView: UIView!
     
     @IBOutlet weak var collectionview: UICollectionView!
@@ -18,6 +20,9 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     let tintColors: [UIColor] = [.red, .systemPink, .green, .yellow, .orange, .systemBlue]
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+        
         BannerView.layer.cornerRadius = 10
         appReferView.layer.cornerRadius = 10
         
@@ -27,7 +32,12 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         if let flowLayout = collectionview.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
-
+        BannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"  // Replace with your actual ad unit ID
+        BannerView.rootViewController = self
+        BannerView.delegate = self
+               
+               let adRequest = GADRequest()
+        BannerView.load(adRequest)
     }
     
     //MARK: COLLECTIONVIEW

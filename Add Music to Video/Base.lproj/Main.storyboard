@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vb-Eh-lbT" userLabel="addView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vb-Eh-lbT" userLabel="addView" customClass="GADBannerView">
                                 <rect key="frame" x="20" y="103" width="353" height="320"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
                             </view>
@@ -130,7 +130,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="BannerView" destination="2vb-Eh-lbT" id="lYM-Hp-qzf"/>
+                        <outlet property="BannerView" destination="2vb-Eh-lbT" id="oSb-HW-cwg"/>
                         <outlet property="appReferView" destination="kLu-Zs-X18" id="WHK-yr-iq2"/>
                         <outlet property="collectionview" destination="a4q-0l-wpW" id="INW-mM-QU9"/>
                     </connections>

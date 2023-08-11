@@ -15,6 +15,8 @@
 		E8BAEBDD2A83FAA200A79B53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BAEBDB2A83FAA200A79B53 /* LaunchScreen.storyboard */; };
 		E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE42A84020E00A79B53 /* HomeVC.swift */; };
 		E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */; };
+		E8DFD3CD2A855F5B000B3C22 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */; };
+		E8DFD3CF2A855F7F000B3C22 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		E8BAEBDE2A83FAA200A79B53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8BAEBE42A84020E00A79B53 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +54,6 @@
 				049E687EB0CB88CA333F2EA2 /* Pods-Add Music to Video.debug.xcconfig */,
 				226A8FF89101981FA3CA7EEF /* Pods-Add Music to Video.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,16 +86,34 @@
 		E8BAEBCF2A83FA9F00A79B53 /* Add Music to Video */ = {
 			isa = PBXGroup;
 			children = (
+				E8DFD3CA2A855F20000B3C22 /* controllers */,
 				E8BAEBD02A83FA9F00A79B53 /* AppDelegate.swift */,
 				E8BAEBD22A83FA9F00A79B53 /* SceneDelegate.swift */,
 				E8BAEBD62A83FA9F00A79B53 /* Main.storyboard */,
 				E8BAEBD92A83FAA200A79B53 /* Assets.xcassets */,
 				E8BAEBDB2A83FAA200A79B53 /* LaunchScreen.storyboard */,
 				E8BAEBDE2A83FAA200A79B53 /* Info.plist */,
+			);
+			path = "Add Music to Video";
+			sourceTree = "<group>";
+		};
+		E8DFD3CA2A855F20000B3C22 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */,
+				E8DFD3CB2A855F29000B3C22 /* home */,
+				E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		E8DFD3CB2A855F29000B3C22 /* home */ = {
+			isa = PBXGroup;
+			children = (
 				E8BAEBE42A84020E00A79B53 /* HomeVC.swift */,
 				E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */,
 			);
-			path = "Add Music to Video";
+			path = home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +216,9 @@
 				E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */,
 				E8BAEBD12A83FA9F00A79B53 /* AppDelegate.swift in Sources */,
 				E8BAEBD32A83FA9F00A79B53 /* SceneDelegate.swift in Sources */,
+				E8DFD3CF2A855F7F000B3C22 /* PurchaseVC.swift in Sources */,
 				E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */,
+				E8DFD3CD2A855F5B000B3C22 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

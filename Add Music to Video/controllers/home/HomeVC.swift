@@ -32,13 +32,35 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         if let flowLayout = collectionview.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
-        BannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"  // Replace with your actual ad unit ID
-        BannerView.rootViewController = self
-        BannerView.delegate = self
-               
-               let adRequest = GADRequest()
-        BannerView.load(adRequest)
+        DispatchQueue.main.async {
+            self.BannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"  // Replace with your actual ad unit ID
+            self.BannerView.rootViewController = self
+            self.BannerView.delegate = self
+
+            let adRequest = GADRequest()
+            self.BannerView.load(adRequest)
+        }
+
     }
+    
+    @IBAction func settingButtonTapped(_ sender: UIBarButtonItem) {
+        // Create an instance of SettingsVC
+        let settingsVC = storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+        
+        // Define the animation options
+        let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+        
+        // Animate the transition
+        UIView.transition(with: view, duration: 0.5, options: transitionOptions, animations: {
+            self.addChild(settingsVC)
+            self.view.addSubview(settingsVC.view)
+            settingsVC.didMove(toParent: self)
+        }, completion: nil)
+    }
+    
+    @IBAction func purchaseButtonTapped(_ sender: UIBarButtonItem) {
+    }
+    
     
     //MARK: COLLECTIONVIEW
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -70,7 +92,78 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             return cell
         }
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            // Section 0 cell was tapped
+            print("Section 0 cell tapped")
+        } else {
+            // Section 1 cells were tapped
+            
+            // Get the selected cell's title and image name
+            let cellTitle = titleArray[indexPath.item]
+            let imageName = imageArray[indexPath.item]
+            
+            // Perform different actions based on the tapped cell
+            switch imageName {
+            case "figure.martial.arts":
+                handleMartialArtsCellTap()
+                
+            case "slowmo":
+                handleSlowMotionCellTap()
+                
+            case "video.slash":
+                handleVideoSlashCellTap()
+                
+            case "music.note.house":
+                handleMusicNoteHouseCellTap()
+                
+            case "music.quarternote.3":
+                handleMusicQuarterNoteCellTap()
+                
+            case "scissors.badge.ellipsis":
+                handleScissorsCellTap()
+                
+            default:
+                handleOtherCellTap(cellTitle: cellTitle)
+            }
+        }
+    }
+    
+    func handleMartialArtsCellTap() {
+        print("Martial Arts cell tapped")
+        // Perform action for martial arts cell
+    }
+    
+    func handleSlowMotionCellTap() {
+        print("Slow Motion cell tapped")
+        // Perform action for slow motion cell
+    }
+    
+    func handleVideoSlashCellTap() {
+        print("Video Slash cell tapped")
+        // Perform action for video slash cell
+    }
+    
+    func handleMusicNoteHouseCellTap() {
+        print("Music Note House cell tapped")
+        // Perform action for music note house cell
+    }
+    
+    func handleMusicQuarterNoteCellTap() {
+        print("Music Quarter Note cell tapped")
+        // Perform action for music quarter note cell
+    }
+    
+    func handleScissorsCellTap() {
+        print("Scissors cell tapped")
+        // Perform action for scissors cell
+    }
+    
+    func handleOtherCellTap(cellTitle: String) {
+        print("Cell tapped with title: \(cellTitle)")
+        // Perform default action for other cells
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
             return CGSize(width: collectionview.bounds.width, height: 80) // Adjust the width and height as needed

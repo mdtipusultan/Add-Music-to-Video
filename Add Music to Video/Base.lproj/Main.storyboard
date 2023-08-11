@@ -43,7 +43,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note.tv" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lzg-DO-yNp">
-                                                    <rect key="frame" x="45" y="31.333333333333332" width="25" height="18.666666666666668"/>
+                                                    <rect key="frame" x="45" y="31.333333333333329" width="25" height="18.666666666666671"/>
                                                     <color key="tintColor" systemColor="systemOrangeColor"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Music to Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pq-DO-9Kj">
@@ -124,6 +124,9 @@
                     <navigationItem key="navigationItem" id="WYn-WV-bwF">
                         <barButtonItem key="leftBarButtonItem" image="list.dash" catalog="system" id="STH-s6-c4c">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="settingButtonTapped:" destination="BYZ-38-t0r" id="Oy8-4O-RMq"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="crown.fill" catalog="system" id="jbV-di-RKW">
                             <color key="tintColor" systemColor="systemPurpleColor"/>
@@ -138,6 +141,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="539.69465648854964" y="6.3380281690140849"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="Bgt-CQ-74a">
+            <objects>
+                <viewController storyboardIdentifier="SettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YSh-0q-1k3" customClass="SettingsVC" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mgX-dv-fc4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0V0-Ha-eml" userLabel="logoView">
+                                <rect key="frame" x="161.66666666666666" y="153" width="70" height="70"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y01-XH-7d1">
+                                        <rect key="frame" x="-1" y="2.3333333333333357" width="71" height="68"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Y01-XH-7d1" secondAttribute="trailing" id="1v6-5J-32R"/>
+                                    <constraint firstItem="Y01-XH-7d1" firstAttribute="leading" secondItem="0V0-Ha-eml" secondAttribute="leading" id="8a7-ca-qPv"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y01-XH-7d1" secondAttribute="bottom" id="DxM-6l-fgh"/>
+                                    <constraint firstItem="Y01-XH-7d1" firstAttribute="top" secondItem="0V0-Ha-eml" secondAttribute="top" id="vJ6-D2-hIH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ErF-oR-vV3"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0V0-Ha-eml" firstAttribute="height" secondItem="mgX-dv-fc4" secondAttribute="height" multiplier="70/852" id="1wg-Np-k6S"/>
+                            <constraint firstItem="0V0-Ha-eml" firstAttribute="top" secondItem="ErF-oR-vV3" secondAttribute="top" constant="50" id="o6j-zy-Xbq"/>
+                            <constraint firstItem="0V0-Ha-eml" firstAttribute="width" secondItem="mgX-dv-fc4" secondAttribute="width" multiplier="70/393" id="qfN-nZ-vPZ"/>
+                            <constraint firstItem="0V0-Ha-eml" firstAttribute="centerX" secondItem="ErF-oR-vV3" secondAttribute="centerX" id="xNt-Q3-N7c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8H8-Iz-e6H">
+                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="dHx-8A-e8W">
+                            <color key="tintColor" systemColor="systemGray2Color"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yA9-LE-Tvc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1414.5038167938931" y="877.46478873239437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jHV-Lj-vP7">
@@ -157,14 +204,37 @@
             </objects>
             <point key="canvasLocation" x="-387.02290076335879" y="6.3380281690140849"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7AO-xG-EZW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tJI-DM-fYM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QPa-GV-4m4">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YSh-0q-1k3" kind="relationship" relationship="rootViewController" id="gdo-wI-XwO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jAb-nc-Dri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="487.78625954198469" y="877.46478873239437"/>
+        </scene>
     </scenes>
     <resources>
         <image name="crown.fill" catalog="system" width="128" height="92"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="music.note.tv" catalog="system" width="128" height="95"/>
         <image name="scissors.badge.ellipsis" catalog="system" width="128" height="86"/>
+        <image name="video.badge.plus" catalog="system" width="128" height="92"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

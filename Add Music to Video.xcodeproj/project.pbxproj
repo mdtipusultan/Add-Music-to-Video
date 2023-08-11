@@ -15,6 +15,7 @@
 		E8BAEBDD2A83FAA200A79B53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BAEBDB2A83FAA200A79B53 /* LaunchScreen.storyboard */; };
 		E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE42A84020E00A79B53 /* HomeVC.swift */; };
 		E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */; };
+		E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */; };
 		E8DFD3CD2A855F5B000B3C22 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */; };
 		E8DFD3CF2A855F7F000B3C22 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		E8BAEBDE2A83FAA200A79B53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8BAEBE42A84020E00A79B53 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsTableViewCell.swift; sourceTree = "<group>"; };
 		E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,10 +99,19 @@
 			path = "Add Music to Video";
 			sourceTree = "<group>";
 		};
-		E8DFD3CA2A855F20000B3C22 /* controllers */ = {
+		E8D8C1392A86DC3E008B60FD /* settings */ = {
 			isa = PBXGroup;
 			children = (
 				E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */,
+				E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		E8DFD3CA2A855F20000B3C22 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8D8C1392A86DC3E008B60FD /* settings */,
 				E8DFD3CB2A855F29000B3C22 /* home */,
 				E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */,
 			);
@@ -215,6 +226,7 @@
 			files = (
 				E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */,
 				E8BAEBD12A83FA9F00A79B53 /* AppDelegate.swift in Sources */,
+				E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */,
 				E8BAEBD32A83FA9F00A79B53 /* SceneDelegate.swift in Sources */,
 				E8DFD3CF2A855F7F000B3C22 /* PurchaseVC.swift in Sources */,
 				E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */,

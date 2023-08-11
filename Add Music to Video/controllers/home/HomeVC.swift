@@ -47,16 +47,15 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         // Create an instance of SettingsVC
         let settingsVC = storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
         
-        // Define the animation options
-        let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+        // Wrap the settingsVC in a UINavigationController
+        let navigationController = UINavigationController(rootViewController: settingsVC)
         
-        // Animate the transition
-        UIView.transition(with: view, duration: 0.5, options: transitionOptions, animations: {
-            self.addChild(settingsVC)
-            self.view.addSubview(settingsVC.view)
-            settingsVC.didMove(toParent: self)
-        }, completion: nil)
+        // Present the navigationController with a flip animation
+        navigationController.modalTransitionStyle = .flipHorizontal
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
+
     
     @IBAction func purchaseButtonTapped(_ sender: UIBarButtonItem) {
     }

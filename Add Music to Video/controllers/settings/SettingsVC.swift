@@ -10,29 +10,28 @@ import UIKit
 class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var logoView: UIView!
-
+    
     @IBOutlet weak var tableview: UITableView!
     let section1Titles = ["Add Music to Video Pro", "Restore Purchase"]
     let section2Titles = ["Tutorial", "Review", "Contact Support", "More Apps", "Terms of Use", "Privacy Policy"]
     let section1Images = ["crown.fill", "repeat.circle.fill"]
     let section2Images = ["lightbulb.circle.fill", "heart.rectangle", "ellipsis.message.fill", "ellipsis.rectangle.fill", "note.text", "beats.powerbeatspro.chargingcase.fill"]
-
-    // Array to hold tint colors for images
+    
     let tintColors: [UIColor] = [.systemBlue, .systemRed, .blue, .systemYellow, .systemPurple, .systemGreen]
-    // Array to hold tint colors for images
     let tintColors2: [UIColor] = [.systemPurple, .systemGreen]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         logoView.layer.cornerRadius = 10
         
         tableview.dataSource = self
         tableview.delegate = self
         tableview.separatorStyle = .none
     }
-
+    
     @IBAction func closeButtonTapped(_ sender: UIBarButtonItem) {
-           dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     //MARK: TABLEVIEW
@@ -48,22 +47,35 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! settingsTableViewCell
-         
-        // Configure cell contents based on section and row
-         if indexPath.section == 0 {
-             cell.logoimage.image = UIImage(systemName: section1Images[indexPath.row])
-             cell.logoTitle.text = section1Titles[indexPath.row]
-             // Set the tint color for the image
-             cell.logoimage.tintColor = tintColors2[indexPath.row]
-         } else {
-             cell.logoimage.image = UIImage(systemName: section2Images[indexPath.row])
-             cell.logoTitle.text = section2Titles[indexPath.row]
-             // Set the tint color for the image
-             cell.logoimage.tintColor = tintColors[indexPath.row]
-         }
         
-         
-         return cell
+        // Configure cell contents based on section and row
+        if indexPath.section == 0 {
+            cell.logoimage.image = UIImage(systemName: section1Images[indexPath.row])
+            cell.logoTitle.text = section1Titles[indexPath.row]
+            // Set the tint color for the image
+            cell.logoimage.tintColor = tintColors2[indexPath.row]
+        } else {
+            cell.logoimage.image = UIImage(systemName: section2Images[indexPath.row])
+            cell.logoTitle.text = section2Titles[indexPath.row]
+            // Set the tint color for the image
+            cell.logoimage.tintColor = tintColors[indexPath.row]
+        }
+        // Set rounded corners for all sections
+        if indexPath.row == 0 {
+            // First row in section, add top and bottom rounded corners
+            cell.layer.cornerRadius = 10
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            // Last row in section, add bottom rounded corners
+            cell.layer.cornerRadius = 10
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        } else {
+            // Middle rows in section, reset corner radius and corners mask
+            cell.layer.cornerRadius = 0
+            cell.layer.maskedCorners = []
+        }
+        
+        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Deselect the selected row immediately
@@ -104,10 +116,8 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 print("Privacy Policy cell tapped")
             }
         }
-        
-        // You can perform any additional actions or navigation here
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -116,7 +126,7 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         // Return the desired height for the section header to create spacing
         return 20.0 // Adjust this value as needed
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // Create an empty view to act as the section header
         let headerView = UIView()
@@ -124,5 +134,4 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         return headerView
     }
-    
 }

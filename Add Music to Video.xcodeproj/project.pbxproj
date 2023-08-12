@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		261050A31C953C1ACDD1DEC8 /* Pods_Add_Music_to_Video.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A41502BA43828D1EA86611 /* Pods_Add_Music_to_Video.framework */; };
+		E8B7D54F2A88286D00D04BF8 /* 172807 (1080p).mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8B7D54E2A88286D00D04BF8 /* 172807 (1080p).mp4 */; };
 		E8BAEBD12A83FA9F00A79B53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBD02A83FA9F00A79B53 /* AppDelegate.swift */; };
 		E8BAEBD32A83FA9F00A79B53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBD22A83FA9F00A79B53 /* SceneDelegate.swift */; };
 		E8BAEBD82A83FA9F00A79B53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BAEBD62A83FA9F00A79B53 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		049E687EB0CB88CA333F2EA2 /* Pods-Add Music to Video.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Add Music to Video.debug.xcconfig"; path = "Target Support Files/Pods-Add Music to Video/Pods-Add Music to Video.debug.xcconfig"; sourceTree = "<group>"; };
 		226A8FF89101981FA3CA7EEF /* Pods-Add Music to Video.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Add Music to Video.release.xcconfig"; path = "Target Support Files/Pods-Add Music to Video/Pods-Add Music to Video.release.xcconfig"; sourceTree = "<group>"; };
 		53A41502BA43828D1EA86611 /* Pods_Add_Music_to_Video.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Add_Music_to_Video.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8B7D54E2A88286D00D04BF8 /* 172807 (1080p).mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "172807 (1080p).mp4"; sourceTree = "<group>"; };
 		E8BAEBCD2A83FA9F00A79B53 /* Add Music to Video.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Add Music to Video.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BAEBD02A83FA9F00A79B53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8BAEBD22A83FA9F00A79B53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				E8BAEBD62A83FA9F00A79B53 /* Main.storyboard */,
 				E8BAEBD92A83FAA200A79B53 /* Assets.xcassets */,
 				E8BAEBDB2A83FAA200A79B53 /* LaunchScreen.storyboard */,
+				E8B7D54E2A88286D00D04BF8 /* 172807 (1080p).mp4 */,
 				E8BAEBDE2A83FAA200A79B53 /* Info.plist */,
 			);
 			path = "Add Music to Video";
@@ -186,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8B7D54F2A88286D00D04BF8 /* 172807 (1080p).mp4 in Resources */,
 				E8BAEBDD2A83FAA200A79B53 /* LaunchScreen.storyboard in Resources */,
 				E8BAEBDA2A83FAA200A79B53 /* Assets.xcassets in Resources */,
 				E8BAEBD82A83FA9F00A79B53 /* Main.storyboard in Resources */,

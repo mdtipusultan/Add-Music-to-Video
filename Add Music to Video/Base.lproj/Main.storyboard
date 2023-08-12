@@ -43,7 +43,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note.tv" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lzg-DO-yNp">
-                                                    <rect key="frame" x="45" y="31.333333333333329" width="25" height="18.666666666666671"/>
+                                                    <rect key="frame" x="45" y="31.333333333333332" width="25" height="18.666666666666668"/>
                                                     <color key="tintColor" systemColor="systemOrangeColor"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Music to Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pq-DO-9Kj">
@@ -130,6 +130,10 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="crown.fill" catalog="system" id="jbV-di-RKW">
                             <color key="tintColor" systemColor="systemPurpleColor"/>
+                            <connections>
+                                <action selector="purchaseButtonTapped:" destination="BYZ-38-t0r" id="Jik-0S-JUa"/>
+                                <segue destination="cUk-8g-95q" kind="presentation" modalPresentationStyle="fullScreen" id="Dyv-gM-36J"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -141,6 +145,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="539.69465648854964" y="6.3380281690140849"/>
+        </scene>
+        <!--PurchaseVC-->
+        <scene sceneID="Wg4-hU-jx6">
+            <objects>
+                <viewController storyboardIdentifier="PurchaseVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SJc-Nq-H8J" customClass="PurchaseVC" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7h1-mo-o6K">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKF-4Z-wod" userLabel="VideoView">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                </accessibility>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvU-Cn-gk9" userLabel="downView">
+                                <rect key="frame" x="0.0" y="385" width="393" height="467"/>
+                                <color key="backgroundColor" red="0.15686270590000001" green="0.15686270590000001" blue="0.15686270590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="512-M8-LQo"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OvU-Cn-gk9" firstAttribute="top" secondItem="hKF-4Z-wod" secondAttribute="bottom" constant="-15" id="CuG-kd-9ls"/>
+                            <constraint firstItem="512-M8-LQo" firstAttribute="trailing" secondItem="OvU-Cn-gk9" secondAttribute="trailing" id="Dx8-ri-USi"/>
+                            <constraint firstItem="hKF-4Z-wod" firstAttribute="height" secondItem="7h1-mo-o6K" secondAttribute="height" multiplier="400/852" id="YCn-P2-uJC"/>
+                            <constraint firstItem="OvU-Cn-gk9" firstAttribute="leading" secondItem="512-M8-LQo" secondAttribute="leading" id="Z5t-rT-HmL"/>
+                            <constraint firstItem="512-M8-LQo" firstAttribute="trailing" secondItem="hKF-4Z-wod" secondAttribute="trailing" id="hRH-LB-sDF"/>
+                            <constraint firstItem="hKF-4Z-wod" firstAttribute="top" secondItem="7h1-mo-o6K" secondAttribute="top" id="ioE-aH-YM7"/>
+                            <constraint firstItem="hKF-4Z-wod" firstAttribute="leading" secondItem="512-M8-LQo" secondAttribute="leading" id="qD4-7c-eiW"/>
+                            <constraint firstItem="512-M8-LQo" firstAttribute="bottom" secondItem="OvU-Cn-gk9" secondAttribute="bottom" id="ub8-SG-fgg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Om1-BZ-rmG">
+                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="chd-mS-SLw">
+                            <color key="tintColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="crossButton:" destination="SJc-Nq-H8J" id="99w-lz-biE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="downView" destination="OvU-Cn-gk9" id="orx-BI-rQk"/>
+                        <outlet property="videoView" destination="hKF-4Z-wod" id="jrV-VF-FsW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1v-PR-0Nk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3173.2824427480914" y="-569.0140845070423"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="Bgt-CQ-74a">
@@ -154,7 +208,7 @@
                                 <rect key="frame" x="166.66666666666666" y="143" width="60" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y01-XH-7d1">
-                                        <rect key="frame" x="7.3333333333333428" y="10.999999999999989" width="44" height="40.666666666666671"/>
+                                        <rect key="frame" x="7.3333333333333428" y="10.999999999999989" width="44" height="40.666666666666657"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
@@ -282,6 +336,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAb-nc-Dri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487.78625954198469" y="877.46478873239437"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="s3n-kT-GQo">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sUE-gR-lUP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cUk-8g-95q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="pGg-7e-4AO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XYU-fR-4db">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SJc-Nq-H8J" kind="relationship" relationship="rootViewController" id="R0h-qQ-smh"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="2246.5648854961833" y="-569.0140845070423"/>
         </scene>
     </scenes>
     <resources>

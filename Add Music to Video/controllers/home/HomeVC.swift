@@ -58,6 +58,14 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
 
     
     @IBAction func purchaseButtonTapped(_ sender: UIBarButtonItem) {
+        let purchaseVC = PurchaseVC() // Replace with the actual name of your purchase view controller class
+        
+        // Set the presentation style to full screen
+        //purchaseVC.modalPresentationStyle = .fullScreen
+        
+        // Present the purchase view controller
+        //present(purchaseVC, animated: true, completion: nil)
+        
     }
     
     

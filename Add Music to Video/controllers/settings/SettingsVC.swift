@@ -65,7 +65,49 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
          
          return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Deselect the selected row immediately
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // Retrieve the selected cell
+        let cell = tableView.cellForRow(at: indexPath) as! settingsTableViewCell
+        
+        // Perform actions based on the selected section and row
+        if indexPath.section == 0 {
+            // Handle actions for section 0
+            if indexPath.row == 0 {
+                // Handle the "Add Music to Video Pro" cell
+                print("Add Music to Video Pro cell tapped")
+            } else if indexPath.row == 1 {
+                // Handle the "Restore Purchase" cell
+                print("Restore Purchase cell tapped")
+            }
+        } else {
+            // Handle actions for section 1
+            if indexPath.row == 0 {
+                // Handle the "Tutorial" cell
+                print("Tutorial cell tapped")
+            } else if indexPath.row == 1 {
+                // Handle the "Review" cell
+                print("Review cell tapped")
+            } else if indexPath.row == 2 {
+                // Handle the "Contact Support" cell
+                print("Contact Support cell tapped")
+            } else if indexPath.row == 3 {
+                // Handle the "More Apps" cell
+                print("More Apps cell tapped")
+            } else if indexPath.row == 4 {
+                // Handle the "Terms of Use" cell
+                print("Terms of Use cell tapped")
+            } else if indexPath.row == 5 {
+                // Handle the "Privacy Policy" cell
+                print("Privacy Policy cell tapped")
+            }
+        }
+        
+        // You can perform any additional actions or navigation here
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }

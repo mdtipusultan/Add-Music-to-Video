@@ -12,7 +12,10 @@ class PurchaseVC: UIViewController {
     
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var downView: UIView!
-    
+    @IBOutlet weak var firstView: UIView!
+    @IBOutlet weak var secondView: UIView!
+    @IBOutlet weak var thirdView: UIView!
+
     var player: AVPlayer?
 
     override func viewDidLoad() {
@@ -21,48 +24,44 @@ class PurchaseVC: UIViewController {
         // Set corner radius for the top part of downView
         downView.layer.cornerRadius = 20
         downView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        firstView.layer.cornerRadius = 10
+        secondView.layer.cornerRadius = 10
+        thirdView.layer.cornerRadius = 10
         videoPlay()
     }
     func videoPlay() {
+        print("videoView frame: \(videoView.frame)")
         // Create a video URL (replace with your video URL)
-        if let videoURL = Bundle.main.url(forResource: "172807 (1080p)", withExtension: "mp4") {
+        if let videoURL = Bundle.main.url(forResource: "mixkit-macaw-parrot-feeding-on-a-branch-4669-medium", withExtension: "mp4") {
             // Create an AVPlayer with the video URL
             player = AVPlayer(url: videoURL)
             
-            // Create an AVPlayerLayer and add it to the videoView's layer
+      
+           
             let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.videoGravity = .resizeAspectFill // Try different settings here
+            playerLayer.frame = videoView.bounds
+            videoView.layer.addSublayer(playerLayer)
+
+            videoView.layoutIfNeeded() // Try adding this line
             
-            let videoAsset = AVAsset(url: videoURL)
-            let videoTrack = videoAsset.tracks(withMediaType: .video).first
+            player?.play()
+            videoView.layer.addSublayer(playerLayer)
+            // Print frames for debugging
+               print("videoView frame: \(videoView.frame)")
+               print("playerLayer frame: \(playerLayer.frame)")
+            // Start playing the video
+            player?.play()
             
-            if let videoTrack = videoTrack {
-                let videoSize = videoTrack.naturalSize
-                let videoTransform = videoTrack.preferredTransform
-                let videoAspectRatio = abs(videoSize.width / videoSize.height)
-                
-                let screenAspectRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
-                
-                // Determine videoGravity based on aspect ratio
-                if videoAspectRatio > screenAspectRatio {
-                    playerLayer.videoGravity = .resizeAspectFill
-                } else {
-                    playerLayer.videoGravity = .resizeAspect
-                }
-                
-                playerLayer.frame = videoView.bounds
-                videoView.layer.addSublayer(playerLayer)
-                
-                // Start playing the video
-                player?.play()
-                
-                // Loop the video continuously
-                NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem, queue: .main) { [weak self] _ in
-                    self?.player?.seek(to: CMTime.zero)
-                    self?.player?.play()
-                }
+            // Loop the video continuously
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem, queue: .main) { [weak self] _ in
+                self?.player?.seek(to: CMTime.zero)
+                self?.player?.play()
             }
         }
     }
+
+
 
 
 

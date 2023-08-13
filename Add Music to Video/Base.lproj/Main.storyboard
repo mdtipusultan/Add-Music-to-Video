@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peM-mK-0Fi">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,19 +14,19 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vb-Eh-lbT" userLabel="addView" customClass="GADBannerView">
-                                <rect key="frame" x="20" y="103" width="353" height="320"/>
+                                <rect key="frame" x="20" y="103" width="390" height="350"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLu-Zs-X18" userLabel="tryNowView">
-                                <rect key="frame" x="20" y="433" width="353" height="90"/>
+                                <rect key="frame" x="20" y="462.99999999999994" width="390" height="98.333333333333314"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a4q-0l-wpW">
-                                <rect key="frame" x="20" y="533" width="353" height="285"/>
+                                <rect key="frame" x="20" y="571.33333333333337" width="390" height="326.66666666666663"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hzO-dy-bz9">
                                     <size key="itemSize" width="165" height="76"/>
@@ -36,7 +36,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell1" id="oam-oq-nRr" customClass="HomeCollectionViewCell" customModule="Add_Music_to_Video" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
+                                        <rect key="frame" x="18.666666666666668" y="0.0" width="353" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hmA-jx-kL5">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
@@ -68,7 +68,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="brF-9R-yDJ" customClass="HomeCollectionViewCell" customModule="Add_Music_to_Video" customModuleProvider="target">
-                                        <rect key="frame" x="97.666666666666671" y="90" width="158" height="76"/>
+                                        <rect key="frame" x="116" y="90" width="158" height="76"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Isk-So-xI1">
                                             <rect key="frame" x="0.0" y="0.0" width="158" height="76"/>
@@ -151,18 +151,18 @@
             <objects>
                 <viewController storyboardIdentifier="PurchaseVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SJc-Nq-H8J" customClass="PurchaseVC" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7h1-mo-o6K">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKF-4Z-wod" userLabel="VideoView">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="437.66666666666669"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" adjustable="YES"/>
                                 </accessibility>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvU-Cn-gk9" userLabel="downView">
-                                <rect key="frame" x="0.0" y="385" width="393" height="467"/>
+                                <rect key="frame" x="0.0" y="422.66666666666674" width="430" height="509.33333333333326"/>
                                 <color key="backgroundColor" red="0.15686270590000001" green="0.15686270590000001" blue="0.15686270590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                         </subviews>
@@ -201,14 +201,14 @@
             <objects>
                 <viewController storyboardIdentifier="SettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YSh-0q-1k3" customClass="SettingsVC" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mgX-dv-fc4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0V0-Ha-eml" userLabel="logoView">
-                                <rect key="frame" x="166.66666666666666" y="143" width="60" height="60"/>
+                                <rect key="frame" x="182.33333333333334" y="143" width="65.333333333333343" height="65.666666666666686"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y01-XH-7d1">
-                                        <rect key="frame" x="7.3333333333333428" y="10.999999999999989" width="44" height="40.666666666666657"/>
+                                        <rect key="frame" x="8.3333333333333108" y="11.666666666666679" width="47.666666666666657" height="45.000000000000007"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
@@ -221,20 +221,20 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Music to Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fch-mb-84Z">
-                                <rect key="frame" x="88.666666666666686" y="223" width="216" height="29"/>
+                                <rect key="frame" x="107" y="228.66666666666666" width="216" height="28.999999999999972"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SED-cZ-sHh">
-                                <rect key="frame" x="20" y="252" width="353" height="516"/>
+                                <rect key="frame" x="20" y="257.66666666666669" width="390" height="590.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="60" id="4iX-R1-OiN" customClass="settingsTableViewCell" customModule="Add_Music_to_Video" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="353" height="60"/>
+                                        <rect key="frame" x="0.0" y="50" width="390" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4iX-R1-OiN" id="DKi-Rh-zX4">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beats.powerbeatspro.chargingcase.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="U6o-gU-TzO">
@@ -307,7 +307,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="peM-mK-0Fi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JPv-gM-nV1">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -325,7 +325,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tJI-DM-fYM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QPa-GV-4m4">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -340,12 +340,11 @@
         <!--Navigation Controller-->
         <scene sceneID="s3n-kT-GQo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sUE-gR-lUP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cUk-8g-95q" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="pGg-7e-4AO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XYU-fR-4db">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -353,6 +352,7 @@
                         <segue destination="SJc-Nq-H8J" kind="relationship" relationship="rootViewController" id="R0h-qQ-smh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sUE-gR-lUP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2246.5648854961833" y="-569.0140845070423"/>
         </scene>
@@ -379,6 +379,9 @@
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

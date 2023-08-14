@@ -126,9 +126,9 @@
 		E8DFD3CA2A855F20000B3C22 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */,
 				E8D8C1392A86DC3E008B60FD /* settings */,
 				E8DFD3CB2A855F29000B3C22 /* home */,
-				E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";

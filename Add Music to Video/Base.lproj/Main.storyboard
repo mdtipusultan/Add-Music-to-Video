@@ -43,7 +43,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note.tv" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lzg-DO-yNp">
-                                                    <rect key="frame" x="45" y="31.000000000000004" width="25" height="19.000000000000011"/>
+                                                    <rect key="frame" x="45" y="31" width="25" height="19.000000000000014"/>
                                                     <color key="tintColor" systemColor="systemOrangeColor"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Music to Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pq-DO-9Kj">
@@ -174,6 +174,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="333" height="70"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="yearButtonTapped:" destination="SJc-Nq-H8J" eventType="touchUpInside" id="Gpy-Fx-FQg"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.inset.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mpD-NJ-eXC">
                                                         <rect key="frame" x="20" y="23.666666666666686" width="25" height="23.666666666666671"/>
@@ -227,6 +230,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="333" height="70"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="monthButtonTapped:" destination="SJc-Nq-H8J" eventType="touchUpInside" id="lZg-mx-YkJ"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zjC-Lj-V7r">
                                                         <rect key="frame" x="20" y="23.666666666666629" width="25" height="23.666666666666671"/>
@@ -270,6 +276,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="333" height="70"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="allTimeButtonTapped:" destination="SJc-Nq-H8J" eventType="touchUpInside" id="ILG-qi-9wg"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LiS-Ly-KwM">
                                                         <rect key="frame" x="20" y="23.666666666666629" width="25" height="23.666666666666671"/>
@@ -378,7 +387,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOz-gK-Z0U">
-                                                <rect key="frame" x="203.66666666666671" y="2" width="116.33333333333334" height="27.333333333333332"/>
+                                                <rect key="frame" x="247" y="-4.3333333333332575" width="73" height="40.333333333333336"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Restore Purchase">
@@ -389,9 +398,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="BOz-gK-Z0U" secondAttribute="trailing" constant="9.9999999999999432" id="1gr-5f-XoF"/>
                                             <constraint firstItem="Etj-yq-zPo" firstAttribute="centerY" secondItem="IQr-Kl-6IS" secondAttribute="centerY" id="3DT-RF-N48"/>
                                             <constraint firstItem="BOz-gK-Z0U" firstAttribute="centerY" secondItem="IQr-Kl-6IS" secondAttribute="centerY" id="4eP-jZ-n94"/>
-                                            <constraint firstItem="BOz-gK-Z0U" firstAttribute="leading" secondItem="QF3-Rh-Ep7" secondAttribute="trailing" id="5uO-UY-QZQ"/>
+                                            <constraint firstItem="BOz-gK-Z0U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QF3-Rh-Ep7" secondAttribute="trailing" symbolic="YES" id="5uO-UY-QZQ"/>
                                             <constraint firstItem="3Mf-0q-fWD" firstAttribute="centerY" secondItem="IQr-Kl-6IS" secondAttribute="centerY" id="Eqa-kK-rVx"/>
                                             <constraint firstItem="QF3-Rh-Ep7" firstAttribute="leading" secondItem="Pq7-fm-7Hd" secondAttribute="trailing" id="Fwd-bW-lg7"/>
                                             <constraint firstItem="3Mf-0q-fWD" firstAttribute="leading" secondItem="IQr-Kl-6IS" secondAttribute="leading" id="UmQ-7F-1aj"/>
@@ -405,18 +415,38 @@
                                             <constraint firstItem="Etj-yq-zPo" firstAttribute="width" secondItem="IQr-Kl-6IS" secondAttribute="width" multiplier="2/350" id="tiK-Fz-oY6"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAc-KA-wPa" userLabel="mostPopularView">
+                                        <rect key="frame" x="146.66666666666666" y="30" width="100" height="20"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOST POPULAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GO6-dE-uik">
+                                                <rect key="frame" x="8.6666666666666856" y="4" width="82.333333333333329" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstItem="GO6-dE-uik" firstAttribute="centerY" secondItem="nAc-KA-wPa" secondAttribute="centerY" id="8C2-rm-rhG"/>
+                                            <constraint firstItem="GO6-dE-uik" firstAttribute="centerX" secondItem="nAc-KA-wPa" secondAttribute="centerX" id="Saq-5l-MtK"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.15686270590000001" green="0.15686270590000001" blue="0.15686270590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="saE-Eu-3G5" firstAttribute="leading" secondItem="OvU-Cn-gk9" secondAttribute="leading" constant="30" id="55M-ob-lOR"/>
                                     <constraint firstAttribute="trailing" secondItem="saE-Eu-3G5" secondAttribute="trailing" constant="30" id="8xO-Nm-EdJ"/>
                                     <constraint firstItem="s7r-3x-2XQ" firstAttribute="top" secondItem="Kzr-Ab-NFo" secondAttribute="bottom" id="AHL-5n-QWq"/>
+                                    <constraint firstItem="nAc-KA-wPa" firstAttribute="top" secondItem="OvU-Cn-gk9" secondAttribute="bottom" multiplier="30/467" id="CE4-Di-hQn"/>
                                     <constraint firstItem="eHX-UJ-Ryg" firstAttribute="height" secondItem="OvU-Cn-gk9" secondAttribute="height" multiplier="50/467" id="Iht-RJ-Eor"/>
                                     <constraint firstItem="IQr-Kl-6IS" firstAttribute="width" secondItem="OvU-Cn-gk9" secondAttribute="width" multiplier="330/393" id="MNb-5o-tss"/>
                                     <constraint firstItem="eHX-UJ-Ryg" firstAttribute="width" secondItem="OvU-Cn-gk9" secondAttribute="width" multiplier="250/393" id="MR9-pg-SPE"/>
                                     <constraint firstItem="s7r-3x-2XQ" firstAttribute="centerX" secondItem="Kzr-Ab-NFo" secondAttribute="centerX" id="NYX-JS-i4T"/>
                                     <constraint firstItem="saE-Eu-3G5" firstAttribute="height" secondItem="OvU-Cn-gk9" secondAttribute="height" multiplier="230/467" id="RAj-ol-mWf"/>
+                                    <constraint firstItem="nAc-KA-wPa" firstAttribute="width" secondItem="OvU-Cn-gk9" secondAttribute="width" multiplier="100/393" id="UhS-Jt-6C4"/>
                                     <constraint firstItem="Kzr-Ab-NFo" firstAttribute="top" secondItem="eHX-UJ-Ryg" secondAttribute="bottom" constant="15" id="Xhw-me-zoY"/>
+                                    <constraint firstItem="nAc-KA-wPa" firstAttribute="centerX" secondItem="OvU-Cn-gk9" secondAttribute="centerX" id="YKQ-vA-f9E"/>
+                                    <constraint firstItem="nAc-KA-wPa" firstAttribute="height" secondItem="OvU-Cn-gk9" secondAttribute="height" multiplier="20/467" id="cMf-an-5Sa"/>
                                     <constraint firstItem="eHX-UJ-Ryg" firstAttribute="top" secondItem="saE-Eu-3G5" secondAttribute="bottom" constant="20" id="dSF-Is-FNb"/>
                                     <constraint firstItem="saE-Eu-3G5" firstAttribute="top" secondItem="OvU-Cn-gk9" secondAttribute="bottom" multiplier="40/467" id="hUQ-8B-Xfo"/>
                                     <constraint firstItem="eHX-UJ-Ryg" firstAttribute="centerX" secondItem="OvU-Cn-gk9" secondAttribute="centerX" id="sdX-cC-dX3"/>
@@ -449,11 +479,27 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="allTimeAmount" destination="u9D-LW-QV2" id="iLs-Dm-Rdn"/>
+                        <outlet property="allTimeButton" destination="roj-MJ-7ug" id="CCQ-6g-j39"/>
                         <outlet property="downView" destination="OvU-Cn-gk9" id="orx-BI-rQk"/>
                         <outlet property="firstView" destination="kvr-Lg-xcd" id="kWs-8p-rDW"/>
+                        <outlet property="image1" destination="mpD-NJ-eXC" id="nsv-yu-sup"/>
+                        <outlet property="image2" destination="zjC-Lj-V7r" id="kxP-KD-bOy"/>
+                        <outlet property="image3" destination="LiS-Ly-KwM" id="jzK-F7-g9L"/>
+                        <outlet property="monthAmount" destination="4qv-hX-nlm" id="9em-Zc-nYR"/>
+                        <outlet property="monthButton" destination="Yx2-Mf-ndk" id="D4e-Rz-zkD"/>
+                        <outlet property="mostPopularView" destination="nAc-KA-wPa" id="VNl-9T-vT4"/>
+                        <outlet property="saveMoneyLabel" destination="Suu-JP-whG" id="CYb-Ex-nMQ"/>
                         <outlet property="secondView" destination="7ha-TI-pfS" id="eJf-zA-fR3"/>
+                        <outlet property="subscrideButton" destination="eHX-UJ-Ryg" id="qiU-U2-sW2"/>
+                        <outlet property="subscriptionRenewLable1" destination="Kzr-Ab-NFo" id="lKd-00-h61"/>
+                        <outlet property="subscriptionRenewLable2" destination="s7r-3x-2XQ" id="qtl-JS-XdF"/>
                         <outlet property="thirdView" destination="kdf-np-EZp" id="gOh-62-yXZ"/>
+                        <outlet property="trailDays1" destination="TKn-RF-juB" id="rcd-qq-nfO"/>
+                        <outlet property="trailDays2" destination="66W-vi-QMB" id="xOZ-Go-X2K"/>
                         <outlet property="videoView" destination="hKF-4Z-wod" id="jrV-VF-FsW"/>
+                        <outlet property="yearAmount" destination="XZe-rV-m4U" id="jH9-xi-2ob"/>
+                        <outlet property="yearButton" destination="D3K-ae-4FE" id="RKM-HR-bi1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1v-PR-0Nk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

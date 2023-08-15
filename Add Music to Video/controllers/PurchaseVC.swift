@@ -57,7 +57,6 @@ class PurchaseVC: UIViewController {
         updateSubscribeButtonTitle(for: yearButton)
         updateButtonBorders()
     }
-    
     func videoPlay() {
         print("videoView frame: \(videoView.frame)")
         // Create a video URL (replace with your video URL)
@@ -65,12 +64,14 @@ class PurchaseVC: UIViewController {
             // Create an AVPlayer with the video URL
             player = AVPlayer(url: videoURL)
             
+            // Remove any existing player layer from the videoView
+            videoView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+            
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.videoGravity = .resizeAspectFill
-            playerLayer.frame = videoView.bounds
             videoView.layer.addSublayer(playerLayer)
-            videoView.layoutIfNeeded()
             
+            // Start playing the video
             player?.play()
             
             // Loop the video continuously
@@ -80,6 +81,16 @@ class PurchaseVC: UIViewController {
             }
         }
     }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // Adjust the player layer's frame when the view layout changes
+        if let playerLayer = videoView.layer.sublayers?.first as? AVPlayerLayer {
+            playerLayer.frame = videoView.bounds
+        }
+    }
+
 
     @IBAction func crossButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true)

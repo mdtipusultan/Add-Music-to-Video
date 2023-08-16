@@ -138,7 +138,7 @@ extension selectMusicVC: UIDocumentPickerDelegate {
         
         // Instantiate the editPageVc view controller
         let storyboard = UIStoryboard(name: "Main", bundle: nil) // Update with your storyboard name
-        if let editPageVC = storyboard.instantiateViewController(withIdentifier: "editPageVcIdentifier") as? editPageVc {
+        if let editPageVC = storyboard.instantiateViewController(withIdentifier: "editPage") as? editPageVc {
             editPageVC.selectedMusicURL = selectedMusicURL // Pass the selected music URL
             editPageVC.selectedVideoURL = selectedVideoURL // Pass the selected video URL
             navigationController?.pushViewController(editPageVC, animated: true)

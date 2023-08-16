@@ -7,18 +7,22 @@
 
 import UIKit
 import Reachability
-
+import MediaPlayer
 
 class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var coleectionview: UICollectionView!
     
     var selectedVideoURL: URL?
-    
-    
     var reachability: Reachability!
-
-
+    /*
+    // Example data for the second section
+    let albumData: [[String: Any]] = [
+        ["title": "Album 1", "coverImage": UIImage(named: "album1_cover")!, "song": "Song 1"],
+        ["title": "Album 2", "coverImage": UIImage(named: "album2_cover")!, "song": "Song 2"],
+        // ... add more albums as needed
+    ]
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +30,11 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
         coleectionview.delegate = self
         
         // Set up Reachability
-         reachability = try? Reachability()
-         
-         NotificationCenter.default.addObserver(self, selector: #selector(handleReachabilityChanged(_:)), name: .reachabilityChanged, object: nil)
-         
-         try? reachability.startNotifier()
+        reachability = try? Reachability()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleReachabilityChanged(_:)), name: .reachabilityChanged, object: nil)
+        
+        try? reachability.startNotifier()
     }
     @objc func handleReachabilityChanged(_ notification: Notification) {
         if let reachability = notification.object as? Reachability {
@@ -39,7 +43,7 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
             }
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -81,14 +85,39 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
             // Configure and return the first section cell
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! selectMusicCollectionViewCell
             // Configure the cell using your data
+            if indexPath.row == 0 {
+                cell.logoIImageview.image = UIImage(systemName: "music.note")
+                cell.logoName.text = "My Music"
+            } else if indexPath.row == 1 {
+                cell.logoIImageview.image = UIImage(systemName: "mic")
+                cell.logoName.text = "Record"
+            }
             return cell
         } else {
             // Configure and return the second section cell
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! DownloadSelectMusicCollectionViewCell
-            // Configure the cell using your data
+            
+          
             return cell
         }
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                // User tapped on the first cell in the first section
+                openMusicTracks()
+            }
+            // Handle other cases if needed
+        }
+    }
+    func openMusicTracks() {
+        let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.audio"], in: .import)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker, animated: true, completion: nil)
+    }
+
+
     // MARK: COLLECTIONVIEW FLOW LAYOUT
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -98,3 +127,24 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
         return CGSize(width: itemWidth, height: 150) // Set item size to create two cells per row
     }
 }
+
+extension selectMusicVC: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let selectedMusicURL = urls.first else {
+            return
+        }
+        
+        // Assume you already have the selectedVideoURL set elsewhere in your code
+        
+        // Instantiate the editPageVc view controller
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Update with your storyboard name
+        if let editPageVC = storyboard.instantiateViewController(withIdentifier: "editPageVcIdentifier") as? editPageVc {
+            editPageVC.selectedMusicURL = selectedMusicURL // Pass the selected music URL
+            editPageVC.selectedVideoURL = selectedVideoURL // Pass the selected video URL
+            navigationController?.pushViewController(editPageVC, animated: true)
+        }
+    }
+    
+    // Handle other delegate methods
+}
+

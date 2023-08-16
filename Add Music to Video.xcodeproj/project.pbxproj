@@ -26,6 +26,7 @@
 		E8FDA53B2A8CC92500FDC578 /* selectMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA53A2A8CC92500FDC578 /* selectMusicVC.swift */; };
 		E8FDA53D2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA53C2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift */; };
 		E8FDA53F2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA53E2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift */; };
+		E8FDA5422A8D578100FDC578 /* editPageVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA5412A8D578100FDC578 /* editPageVc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		E8FDA53A2A8CC92500FDC578 /* selectMusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectMusicVC.swift; sourceTree = "<group>"; };
 		E8FDA53C2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectMusicCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8FDA53E2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSelectMusicCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8FDA5412A8D578100FDC578 /* editPageVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editPageVc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		E8DFD3CA2A855F20000B3C22 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8FDA5402A8D575900FDC578 /* editpage */,
 				E8FDA5392A8CC8FE00FDC578 /* select music */,
 				E8FDA5382A8CC8ED00FDC578 /* purchase */,
 				E8D8C1392A86DC3E008B60FD /* settings */,
@@ -165,6 +168,14 @@
 				E8FDA53E2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift */,
 			);
 			path = "select music";
+			sourceTree = "<group>";
+		};
+		E8FDA5402A8D575900FDC578 /* editpage */ = {
+			isa = PBXGroup;
+			children = (
+				E8FDA5412A8D578100FDC578 /* editPageVc.swift */,
+			);
+			path = editpage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +300,7 @@
 			files = (
 				E8FDA53D2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift in Sources */,
 				E8FDA53B2A8CC92500FDC578 /* selectMusicVC.swift in Sources */,
+				E8FDA5422A8D578100FDC578 /* editPageVc.swift in Sources */,
 				E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */,
 				E8BAEBD12A83FA9F00A79B53 /* AppDelegate.swift in Sources */,
 				E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */,

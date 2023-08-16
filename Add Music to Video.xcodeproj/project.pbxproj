@@ -178,6 +178,7 @@
 				E8BAEBC92A83FA9F00A79B53 /* Sources */,
 				E8BAEBCA2A83FA9F00A79B53 /* Frameworks */,
 				E8BAEBCB2A83FA9F00A79B53 /* Resources */,
+				A539D4BF9B93B0174CB6A5D9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,6 +241,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A539D4BF9B93B0174CB6A5D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Add Music to Video/Pods-Add Music to Video-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Add Music to Video/Pods-Add Music to Video-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Add Music to Video/Pods-Add Music to Video-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B7569F34E195CF346240771F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

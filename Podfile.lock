@@ -1,16 +1,20 @@
 PODS:
   - GoogleMobileAds (7.8.0)
+  - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
   - GoogleMobileAds
+  - ReachabilitySwift
 
 SPEC REPOS:
   trunk:
     - GoogleMobileAds
+    - ReachabilitySwift
 
 SPEC CHECKSUMS:
   GoogleMobileAds: 0ed4d41b03fe768e2e2945df68707fd4ff97c179
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: a78f3ad71805b8f559efb5696d780ed5460f4b2e
+PODFILE CHECKSUM: 2aabce7bdf8ef29e9d214907fe0be49756b973b5
 
 COCOAPODS: 1.12.1

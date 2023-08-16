@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Reachability
+
 
 class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
@@ -13,41 +15,57 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     
     var selectedVideoURL: URL?
     
+    
+    var reachability: Reachability!
+
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         coleectionview.dataSource = self
         coleectionview.delegate = self
-                
-    
+        
+        // Set up Reachability
+         reachability = try? Reachability()
+         
+         NotificationCenter.default.addObserver(self, selector: #selector(handleReachabilityChanged(_:)), name: .reachabilityChanged, object: nil)
+         
+         try? reachability.startNotifier()
     }
+    @objc func handleReachabilityChanged(_ notification: Notification) {
+        if let reachability = notification.object as? Reachability {
+            if reachability.connection != .unavailable {
+                coleectionview.reloadData() // Reload the collection view to update sections
+            }
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
-          super.viewWillAppear(animated)
-          
-          // Hide the back button
-          navigationItem.setHidesBackButton(true, animated: false)
+        super.viewWillAppear(animated)
+        
+        // Hide the back button
+        navigationItem.setHidesBackButton(true, animated: false)
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-    
-
-           // Prevent the navigation bar from hiding on scroll
-           navigationController?.hidesBarsOnSwipe = false
-
-           // Configure collection view layout
-           if let layout = coleectionview.collectionViewLayout as? UICollectionViewFlowLayout {
-               layout.minimumInteritemSpacing = 10 // Adjust the spacing between cells horizontally
-               layout.minimumLineSpacing = 10 // Adjust the spacing between cells vertically
-
-               let itemWidth = (coleectionview.bounds.width - layout.minimumInteritemSpacing) / 2
-               layout.itemSize = CGSize(width: itemWidth, height: itemWidth) // Set item size to create two cells per row
-           }
-      }
-
+        // Prevent the navigation bar from hiding on scroll
+        navigationController?.hidesBarsOnSwipe = false
+        
+        
+        // Configure collection view layout
+        if let layout = coleectionview.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.minimumInteritemSpacing = 10 // Adjust the spacing between cells horizontally
+            layout.minimumLineSpacing = 10 // Adjust the spacing between cells vertically
+            
+            let itemWidth = (coleectionview.bounds.width - layout.minimumInteritemSpacing) / 2
+            layout.itemSize = CGSize(width: itemWidth, height: itemWidth) // Set item size to create two cells per row
+        }
+    }
 
     // MARK: COLLECTIONVIEW
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return reachability?.connection != .unavailable ? 2 : 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,5 +97,4 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
         
         return CGSize(width: itemWidth, height: 150) // Set item size to create two cells per row
     }
-    
 }

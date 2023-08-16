@@ -23,6 +23,9 @@
 		E8D913A02A88EAEF00CC5AF2 /* mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8D9139F2A88EAEF00CC5AF2 /* mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4 */; };
 		E8DFD3CD2A855F5B000B3C22 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */; };
 		E8DFD3CF2A855F7F000B3C22 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */; };
+		E8FDA53B2A8CC92500FDC578 /* selectMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA53A2A8CC92500FDC578 /* selectMusicVC.swift */; };
+		E8FDA53D2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA53C2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift */; };
+		E8FDA53F2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA53E2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		E8D9139F2A88EAEF00CC5AF2 /* mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4"; sourceTree = "<group>"; };
 		E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
+		E8FDA53A2A8CC92500FDC578 /* selectMusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectMusicVC.swift; sourceTree = "<group>"; };
+		E8FDA53C2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectMusicCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8FDA53E2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSelectMusicCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +132,8 @@
 		E8DFD3CA2A855F20000B3C22 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */,
+				E8FDA5392A8CC8FE00FDC578 /* select music */,
+				E8FDA5382A8CC8ED00FDC578 /* purchase */,
 				E8D8C1392A86DC3E008B60FD /* settings */,
 				E8DFD3CB2A855F29000B3C22 /* home */,
 			);
@@ -140,6 +147,24 @@
 				E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */,
 			);
 			path = home;
+			sourceTree = "<group>";
+		};
+		E8FDA5382A8CC8ED00FDC578 /* purchase */ = {
+			isa = PBXGroup;
+			children = (
+				E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */,
+			);
+			path = purchase;
+			sourceTree = "<group>";
+		};
+		E8FDA5392A8CC8FE00FDC578 /* select music */ = {
+			isa = PBXGroup;
+			children = (
+				E8FDA53A2A8CC92500FDC578 /* selectMusicVC.swift */,
+				E8FDA53C2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift */,
+				E8FDA53E2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift */,
+			);
+			path = "select music";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,10 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8FDA53D2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift in Sources */,
+				E8FDA53B2A8CC92500FDC578 /* selectMusicVC.swift in Sources */,
 				E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */,
 				E8BAEBD12A83FA9F00A79B53 /* AppDelegate.swift in Sources */,
 				E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */,
 				E8BAEBD32A83FA9F00A79B53 /* SceneDelegate.swift in Sources */,
+				E8FDA53F2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift in Sources */,
 				E8DFD3CF2A855F7F000B3C22 /* PurchaseVC.swift in Sources */,
 				E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */,
 				E8DFD3CD2A855F5B000B3C22 /* SettingsVC.swift in Sources */,

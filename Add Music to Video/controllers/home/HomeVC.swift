@@ -58,16 +58,8 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
 
     
     @IBAction func purchaseButtonTapped(_ sender: UIBarButtonItem) {
-        let purchaseVC = PurchaseVC() // Replace with the actual name of your purchase view controller class
-        
-        // Set the presentation style to full screen
-        //purchaseVC.modalPresentationStyle = .fullScreen
-        
-        // Present the purchase view controller
-        //present(purchaseVC, animated: true, completion: nil)
         
     }
-    
     
     //MARK: COLLECTIONVIEW
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -104,6 +96,12 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         if indexPath.section == 0 {
             // Section 0 cell was tapped
             print("Section 0 cell tapped")
+            // Present the photo picker when the Section 0 cell is tapped
+                    let picker = UIImagePickerController()
+                    picker.delegate = self
+                    picker.sourceType = .photoLibrary
+                    picker.mediaTypes = ["public.movie"]
+                    present(picker, animated: true, completion: nil)
         } else {
             // Section 1 cells were tapped
             
@@ -193,3 +191,25 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         
     }
 }
+extension HomeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        // Handle the selected video URL
+        if let videoURL = info[.mediaURL] as? URL {
+            // Instantiate the selectMusicVC view controller
+            let selectMusicVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectMusicViewController") as! selectMusicVC
+            
+            // Pass the selected video URL to the selectMusicVC if needed
+            selectMusicVC.selectedVideoURL = videoURL // Replace with your property name
+            
+            // Push the selectMusicVC onto the navigation stack
+            navigationController?.pushViewController(selectMusicVC, animated: true)
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+

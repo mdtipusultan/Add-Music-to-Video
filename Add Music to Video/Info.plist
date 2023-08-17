@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string> We need access to your photo library to save videos with music.</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1528296005792758~1419749336</string>
 	<key>UIApplicationSceneManifest</key>

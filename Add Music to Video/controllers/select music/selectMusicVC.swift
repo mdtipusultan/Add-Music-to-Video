@@ -16,13 +16,13 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     var selectedVideoURL: URL?
     var reachability: Reachability!
     /*
-    // Example data for the second section
-    let albumData: [[String: Any]] = [
-        ["title": "Album 1", "coverImage": UIImage(named: "album1_cover")!, "song": "Song 1"],
-        ["title": "Album 2", "coverImage": UIImage(named: "album2_cover")!, "song": "Song 2"],
-        // ... add more albums as needed
-    ]
-    */
+     // Example data for the second section
+     let albumData: [[String: Any]] = [
+     ["title": "Album 1", "coverImage": UIImage(named: "album1_cover")!, "song": "Song 1"],
+     ["title": "Album 2", "coverImage": UIImage(named: "album2_cover")!, "song": "Song 2"],
+     // ... add more albums as needed
+     ]
+     */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,7 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        // Prevent the navigation bar from hiding on scroll
+        // Prevent the navigation bar from hiding from scroll
         navigationController?.hidesBarsOnSwipe = false
         
         
@@ -65,7 +65,7 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
             layout.itemSize = CGSize(width: itemWidth, height: itemWidth) // Set item size to create two cells per row
         }
     }
-
+    
     // MARK: COLLECTIONVIEW
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -97,7 +97,7 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
             // Configure and return the second section cell
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! DownloadSelectMusicCollectionViewCell
             
-          
+            
             return cell
         }
     }
@@ -116,8 +116,8 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
         documentPicker.allowsMultipleSelection = false
         present(documentPicker, animated: true, completion: nil)
     }
-
-
+    
+    
     // MARK: COLLECTIONVIEW FLOW LAYOUT
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

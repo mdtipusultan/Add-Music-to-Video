@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -277,14 +278,96 @@
                     <view key="view" contentMode="scaleToFill" id="5eQ-TE-QM2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBG-Ct-B4n" userLabel="VideoView">
+                                <rect key="frame" x="0.0" y="46" width="393" height="400"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWw-Mb-lfO" userLabel="MusicView">
+                                <rect key="frame" x="0.0" y="496" width="393" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="JwE-m7-N56"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JwE-m7-N56" firstAttribute="trailing" secondItem="NWw-Mb-lfO" secondAttribute="trailing" id="074-ZG-ay4"/>
+                            <constraint firstItem="dBG-Ct-B4n" firstAttribute="top" secondItem="5eQ-TE-QM2" secondAttribute="top" constant="46" id="2Nd-a4-rVY"/>
+                            <constraint firstItem="dBG-Ct-B4n" firstAttribute="leading" secondItem="JwE-m7-N56" secondAttribute="leading" id="3ul-2h-5Q3"/>
+                            <constraint firstItem="dBG-Ct-B4n" firstAttribute="height" secondItem="5eQ-TE-QM2" secondAttribute="height" multiplier="400/852" id="bIA-U2-IoT"/>
+                            <constraint firstItem="NWw-Mb-lfO" firstAttribute="height" secondItem="5eQ-TE-QM2" secondAttribute="height" multiplier="100/852" id="hn0-en-E4f"/>
+                            <constraint firstItem="NWw-Mb-lfO" firstAttribute="top" secondItem="dBG-Ct-B4n" secondAttribute="bottom" constant="50" id="iRi-Je-jBN"/>
+                            <constraint firstItem="NWw-Mb-lfO" firstAttribute="leading" secondItem="JwE-m7-N56" secondAttribute="leading" id="mfP-OD-i4Z"/>
+                            <constraint firstItem="JwE-m7-N56" firstAttribute="trailing" secondItem="dBG-Ct-B4n" secondAttribute="trailing" id="sxk-Jj-LLg"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="m8r-Cp-i3F"/>
+                    <navigationItem key="navigationItem" id="m8r-Cp-i3F">
+                        <barButtonItem key="leftBarButtonItem" title="New" style="done" id="CMZ-CJ-wfu">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="KVf-wz-rPh">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="pCr-EC-76f" id="HuX-Ni-Iec"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="musicView" destination="NWw-Mb-lfO" id="INP-6t-2XU"/>
+                        <outlet property="videooView" destination="dBG-Ct-B4n" id="hIL-Sm-Axr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ocm-kw-bN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4497" y="6"/>
+            <point key="canvasLocation" x="5046.5648854961828" y="5.6338028169014089"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="KFO-un-GCH">
+            <objects>
+                <viewController id="OjQ-eO-Seo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wQt-6s-ukQ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1fF-mq-XSn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="1i2-WA-ok5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QQp-E3-GfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8483.2061068702278" y="-197.18309859154931"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="IR0-CW-0cu">
+            <objects>
+                <viewController id="1Ex-1R-kui" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5O9-f5-smd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HZf-OD-5ju"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="8ss-oS-b7B"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mF4-XH-u20" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5866" y="-1060"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="BJY-gu-wjv">
+            <objects>
+                <viewController id="DYy-oJ-ieg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IEM-5n-VlR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="PVd-KI-Tj8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="c9m-PF-TtA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uqy-K9-j1j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7570.2290076335876" y="-197.18309859154931"/>
         </scene>
         <!--PurchaseVC-->
         <scene sceneID="Wg4-hU-jx6">
@@ -827,6 +910,82 @@
             </objects>
             <point key="canvasLocation" x="1959.5419847328244" y="5.6338028169014089"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="UbA-zM-o5E">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xXm-tK-Qhc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2K8-Si-fAh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="DYy-oJ-ieg" kind="relationship" relationship="viewControllers" id="9wC-lQ-GhA"/>
+                        <segue destination="OjQ-eO-Seo" kind="relationship" relationship="viewControllers" id="KTP-xY-m5N"/>
+                        <segue destination="euL-Pc-mNL" kind="relationship" relationship="viewControllers" id="wBh-K4-FDF"/>
+                        <segue destination="Fcq-kO-3U2" kind="relationship" relationship="viewControllers" id="ygg-vo-Oyv"/>
+                        <segue destination="1Ex-1R-kui" kind="relationship" relationship="viewControllers" id="DKW-Tx-yFa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcC-Rw-3Bj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6819" y="-65"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="KjE-eX-Qib">
+            <objects>
+                <viewController id="euL-Pc-mNL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wy7-5P-np6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XfL-Fp-sUO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="7Sq-94-mIe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SvS-hk-x2E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8764" y="736"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="nBm-rC-RNd">
+            <objects>
+                <viewController id="Fcq-kO-3U2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wBs-L7-fLE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="RHT-YZ-evs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="FLG-Sf-dgK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3F-XX-l1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9952" y="736"/>
+        </scene>
+        <!--Effects-->
+        <scene sceneID="7fV-vL-pIJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Efj-xy-DSv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Effects" id="A6s-mW-wmS">
+                        <imageReference key="image" image="refrigerator.fill" catalog="system" symbolScale="large" variableValue="0.0"/>
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fcc-kg-ZOR">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pCr-EC-76f" kind="relationship" relationship="rootViewController" id="2Pg-3n-iXa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6E-Rh-YhS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4119.8473282442746" y="5.6338028169014089"/>
+        </scene>
     </scenes>
     <resources>
         <image name="beats.powerbeatspro.chargingcase.fill" catalog="system" width="128" height="115"/>
@@ -836,6 +995,7 @@
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="music.note.tv" catalog="system" width="128" height="95"/>
         <image name="record.circle" catalog="system" width="128" height="123"/>
+        <image name="refrigerator.fill" catalog="system" width="95" height="128"/>
         <image name="scissors.badge.ellipsis" catalog="system" width="128" height="86"/>
         <image name="video.badge.plus" catalog="system" width="128" height="92"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

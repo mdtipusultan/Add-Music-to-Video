@@ -72,18 +72,20 @@ class editPageVc: UIViewController {
           
           // Create a URL for the output file in the Documents directory
           let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-          let outputURL = documentsDirectory.appendingPathComponent("output.mov")
-          
-          exportSession?.outputURL = outputURL
+        // Create a URL for the output file in the Documents directory with a unique file name
+        let outputFileName = "output_\(Date().timeIntervalSince1970).mov" // Using timestamp as part of the file name
+        let outputURL = documentsDirectory.appendingPathComponent(outputFileName)
 
-          exportSession?.exportAsynchronously {
-              if exportSession?.status == .completed {
-                  // Save the video to the photo library
-                  self.saveToGallery(url: outputURL)
-              } else {
-                  print("Export failed: \(exportSession?.error?.localizedDescription ?? "Unknown error")")
-              }
-          }
+        exportSession?.outputURL = outputURL
+
+        exportSession?.exportAsynchronously {
+            if exportSession?.status == .completed {
+                // Save the video to the photo library
+                self.saveToGallery(url: outputURL)
+            } else {
+                print("Export failed: \(exportSession?.error?.localizedDescription ?? "Unknown error")")
+            }
+        }
 
     }
     func saveToGallery(url: URL?) {

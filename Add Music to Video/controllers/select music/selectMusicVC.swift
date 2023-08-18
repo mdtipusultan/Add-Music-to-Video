@@ -66,6 +66,21 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
         }
     }
     
+    
+    @IBAction func skipButtonTapped(_ sender: UIBarButtonItem) {
+        // Set selectedMusicURL to nil
+             let selectedMusicURL: URL? = nil
+             
+             // Instantiate the editPageVc view controller
+             let storyboard = UIStoryboard(name: "Main", bundle: nil) // Update with your storyboard name
+             if let editPageVC = storyboard.instantiateViewController(withIdentifier: "editPage") as? editPageVc {
+                 editPageVC.selectedMusicURL = selectedMusicURL // Pass the selected music URL (which is nil)
+                 editPageVC.selectedVideoURL = selectedVideoURL // Pass the selected video URL
+                 navigationController?.pushViewController(editPageVC, animated: true)
+             }
+        
+    }
+    
     // MARK: COLLECTIONVIEW
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

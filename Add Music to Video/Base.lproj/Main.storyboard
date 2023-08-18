@@ -261,6 +261,9 @@
                     <navigationItem key="navigationItem" title="Select a Music" id="4sC-Wo-TOk">
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="Yhb-1i-EX8">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="skipButtonTapped:" destination="Dpb-nJ-FW7" id="HEe-3K-aVQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

@@ -122,8 +122,8 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width
-        let itemWidth = (collectionViewWidth - 10) / 2 // Adjust the spacing between cells horizontally
-        
+        let itemWidth = (collectionViewWidth - 20) / 2 // Adjust the spacing between cells horizontally
+        print(itemWidth)
         return CGSize(width: itemWidth, height: 150) // Set item size to create two cells per row
     }
 }
@@ -144,7 +144,5 @@ extension selectMusicVC: UIDocumentPickerDelegate {
             navigationController?.pushViewController(editPageVC, animated: true)
         }
     }
-    
     // Handle other delegate methods
 }
-

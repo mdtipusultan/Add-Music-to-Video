@@ -56,6 +56,25 @@ class editPageVc: UIViewController {
                }
            }
        }
+    
+    @IBAction func newButtonTapped(_ sender: UIBarButtonItem) {
+            // Show a confirmation alert
+            let alertController = UIAlertController(title: "Confirm", message: "Are you sure you want to go back to the home screen?", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+                // Navigate back to the root view controller (HomeVC)
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(confirmAction)
+            
+            present(alertController, animated: true, completion: nil)
+        }
+
+    
+    
     // Function to save the video with music and clip the music
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let selectedVideoURL = selectedVideoURL, let selectedMusicURL = selectedMusicURL else {

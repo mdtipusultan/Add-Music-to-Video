@@ -9,19 +9,17 @@ import UIKit
 import GoogleMobileAds
 
 class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,GADBannerViewDelegate {
-
+    
     @IBOutlet weak var BannerView: GADBannerView!
-    
     @IBOutlet weak var appReferView: UIView!
-    
     @IBOutlet weak var collectionview: UICollectionView!
+    
     let imageArray = ["figure.martial.arts", "slowmo", "video.slash", "music.note.house", "music.quarternote.3", "scissors.badge.ellipsis"]
-        let titleArray = ["AL Effects", "Slow Motion", "Cut Video", "Cut Audio", "Merge Audio", "Extract Audio"]
+    let titleArray = ["AL Effects", "Slow Motion", "Cut Video", "Cut Audio", "Merge Audio", "Extract Audio"]
     let tintColors: [UIColor] = [.red, .systemPink, .green, .yellow, .orange, .systemBlue]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
         
         BannerView.layer.cornerRadius = 10
         appReferView.layer.cornerRadius = 10
@@ -36,11 +34,10 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             self.BannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"  // Replace with your actual ad unit ID
             self.BannerView.rootViewController = self
             self.BannerView.delegate = self
-
+            
             let adRequest = GADRequest()
             self.BannerView.load(adRequest)
         }
-
     }
     
     @IBAction func settingButtonTapped(_ sender: UIBarButtonItem) {
@@ -55,7 +52,6 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)
     }
-
     
     @IBAction func purchaseButtonTapped(_ sender: UIBarButtonItem) {
         
@@ -63,13 +59,13 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     
     //MARK: COLLECTIONVIEW
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-          return 2
-      }
-      
-      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-          return section == 0 ? 1 : 6
-      }
-      
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return section == 0 ? 1 : 6
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! HomeCollectionViewCell
@@ -83,10 +79,10 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             cell.layer.cornerRadius = 10
             cell.backgroundColor = .lightGray // Set your desired cell color
             cell.titleLabel.text = titleArray[indexPath.item]
-              cell.imageView.image = UIImage(systemName: imageArray[indexPath.item] )
+            cell.imageView.image = UIImage(systemName: imageArray[indexPath.item] )
             // Configure the cell content for the second section
             // Set the tint color based on the index
-                   cell.imageView.tintColor = tintColors[indexPath.item]
+            cell.imageView.tintColor = tintColors[indexPath.item]
             
             return cell
         }
@@ -97,11 +93,11 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             // Section 0 cell was tapped
             print("Section 0 cell tapped")
             // Present the photo picker when the Section 0 cell is tapped
-                    let picker = UIImagePickerController()
-                    picker.delegate = self
-                    picker.sourceType = .photoLibrary
-                    picker.mediaTypes = ["public.movie"]
-                    present(picker, animated: true, completion: nil)
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .photoLibrary
+            picker.mediaTypes = ["public.movie"]
+            present(picker, animated: true, completion: nil)
         } else {
             // Section 1 cells were tapped
             

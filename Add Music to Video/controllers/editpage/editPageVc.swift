@@ -2,7 +2,6 @@ import UIKit
 import AVFoundation
 import Photos
 
-
 class editPageVc: UIViewController {
     
     var selectedMusicURL: URL?
@@ -14,26 +13,29 @@ class editPageVc: UIViewController {
     
     @IBOutlet weak var videooView: UIView!
     @IBOutlet weak var musicView: UIView!
-    
-    
-    
-    
-    override func viewDidLoad() {
+
+    override func viewDidLoad(){
         super.viewDidLoad()
         
         // Hide the back button
         navigationItem.setHidesBackButton(true, animated: false)
         
-        // Play the selected video
-           if let selectedVideoURL = selectedVideoURL {
-               videoPlayer = AVPlayer(url: selectedVideoURL)
-               let playerLayer = AVPlayerLayer(player: videoPlayer)
-               
-               playerLayer.videoGravity = .resizeAspect // Set videoGravity to center the video
-               playerLayer.frame = videooView.bounds
-               videooView.layer.addSublayer(playerLayer)
-               videoPlayer?.play()
-           }
+        if let selectedVideoURL = selectedVideoURL {
+            videoPlayer = AVPlayer(url: selectedVideoURL)
+            let playerLayer = AVPlayerLayer(player: videoPlayer)
+            
+            playerLayer.videoGravity = .resizeAspect // Set videoGravity to resizeAspect
+            playerLayer.frame = videooView.bounds
+          
+            
+            videooView.layer.addSublayer(playerLayer)
+            videoPlayer?.play()
+        }
+
+
+
+
+
         
         // Play the selected music
         if let selectedMusicURL = selectedMusicURL {
@@ -46,13 +48,21 @@ class editPageVc: UIViewController {
             }
         }
     }
-    
+    // Function to pause the audio player
+       func pauseAudioPlayer() {
+           if let audioPlayer = audioPlayer {
+               if audioPlayer.isPlaying {
+                   audioPlayer.pause()
+               }
+           }
+       }
     // Function to save the video with music and clip the music
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let selectedVideoURL = selectedVideoURL, let selectedMusicURL = selectedMusicURL else {
             return
         }
-        
+        // Pause the audio player before exporting
+               pauseAudioPlayer()
         // Create a video composition with music
         let composition = AVMutableComposition()
         
@@ -67,8 +77,8 @@ class editPageVc: UIViewController {
         try? musicTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: videoAsset.duration), of: musicAsset.tracks(withMediaType: .audio)[0], at: .zero)
         
         // Export the composition
-          let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)
-          exportSession?.outputFileType = .mov // Adjust the desired output format
+        let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)
+        exportSession?.outputFileType = .mov // Adjust the desired output format
           
           // Create a URL for the output file in the Documents directory
           let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

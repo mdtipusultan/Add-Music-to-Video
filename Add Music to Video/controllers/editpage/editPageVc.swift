@@ -16,8 +16,6 @@ class editPageVc: UIViewController {
     
     @IBOutlet weak var tabBar: UITabBar!
 
-    
-
     override func viewDidLoad(){
         super.viewDidLoad()
        

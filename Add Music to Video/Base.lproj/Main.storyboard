@@ -293,14 +293,17 @@
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJi-nW-LZ9">
                                 <rect key="frame" x="0.0" y="769" width="393" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="1De-a9-8F0"/>
-                                    <tabBarItem tag="1" systemItem="favorites" id="nIY-Or-63f"/>
-                                    <tabBarItem tag="2" systemItem="favorites" id="fdj-KL-IKT"/>
-                                    <tabBarItem tag="3" systemItem="favorites" id="xt9-im-ma2"/>
-                                    <tabBarItem tag="4" systemItem="favorites" id="h5C-I2-Ih4"/>
+                                    <tabBarItem title="Effects" image="a" catalog="system" id="1De-a9-8F0">
+                                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tabBarItem>
+                                    <tabBarItem tag="1" title="Canvas" image="crop" catalog="system" id="nIY-Or-63f"/>
+                                    <tabBarItem tag="2" title="Add Music" image="plus.circle.fill" catalog="system" id="fdj-KL-IKT"/>
+                                    <tabBarItem tag="3" title="Filter" image="camera.filters" catalog="system" id="xt9-im-ma2"/>
+                                    <tabBarItem tag="4" title="Edit" image="creditcard.and.123" catalog="system" id="h5C-I2-Ih4"/>
                                 </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JwE-m7-N56"/>
@@ -364,9 +367,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="HZf-OD-5ju"/>
-                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZWO-tt-Qby"/>
+                    <navigationItem key="navigationItem" id="ZWO-tt-Qby">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qnm-z2-PNc">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zrz-XF-TGr">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mF4-XH-u20" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1004,12 +1014,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="a" catalog="system" width="128" height="128"/>
         <image name="beats.powerbeatspro.chargingcase.fill" catalog="system" width="128" height="115"/>
+        <image name="camera.filters" catalog="system" width="128" height="119"/>
         <image name="circle" catalog="system" width="128" height="123"/>
         <image name="circle.inset.filled" catalog="system" width="128" height="123"/>
+        <image name="creditcard.and.123" catalog="system" width="128" height="90"/>
+        <image name="crop" catalog="system" width="128" height="116"/>
         <image name="crown.fill" catalog="system" width="128" height="92"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="music.note.tv" catalog="system" width="128" height="95"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="record.circle" catalog="system" width="128" height="123"/>
         <image name="refrigerator.fill" catalog="system" width="95" height="128"/>
         <image name="scissors.badge.ellipsis" catalog="system" width="128" height="86"/>

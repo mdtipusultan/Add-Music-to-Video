@@ -73,6 +73,10 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             cell.backgroundColor = .lightGray // Set your desired cell color
             // Configure the cell content for the first section
             
+            // Adjust the height and width of the imageView in the first cell
+            let newImageViewSize = CGSize(width: 120, height: 120) // Set your desired size
+            cell.imageView.frame.size = newImageViewSize
+            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! HomeCollectionViewCell
@@ -83,6 +87,8 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             // Configure the cell content for the second section
             // Set the tint color based on the index
             cell.imageView.tintColor = tintColors[indexPath.item]
+            
+            
             
             return cell
         }
@@ -208,4 +214,3 @@ extension HomeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         picker.dismiss(animated: true, completion: nil)
     }
 }
-

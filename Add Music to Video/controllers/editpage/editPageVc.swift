@@ -20,6 +20,7 @@ class editPageVc: UIViewController {
         super.viewDidLoad()
        
         tabBar.delegate = self
+    
         // Hide the back button
         navigationItem.setHidesBackButton(true, animated: false)
         
@@ -164,6 +165,7 @@ extension editPageVc: UITabBarDelegate {
                 break
             }
         }
+       
     }
 }
 

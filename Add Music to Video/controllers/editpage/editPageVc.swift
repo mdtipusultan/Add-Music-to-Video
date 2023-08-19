@@ -13,10 +13,15 @@ class editPageVc: UIViewController {
     
     @IBOutlet weak var videooView: UIView!
     @IBOutlet weak var musicView: UIView!
+    
+    @IBOutlet weak var tabBar: UITabBar!
+
+    
 
     override func viewDidLoad(){
         super.viewDidLoad()
-        
+       
+        tabBar.delegate = self
         // Hide the back button
         navigationItem.setHidesBackButton(true, animated: false)
         
@@ -25,10 +30,14 @@ class editPageVc: UIViewController {
             let playerLayer = AVPlayerLayer(player: videoPlayer)
             
             playerLayer.videoGravity = .resizeAspect // Set videoGravity to resizeAspect
-            playerLayer.frame = videooView.bounds
             videooView.layer.addSublayer(playerLayer)
             videoPlayer?.play()
+            
+            // Update playerLayer's frame to center the video within the videooView
+            playerLayer.frame = videooView.bounds
+            playerLayer.contentsGravity = .center
         }
+
         // Play the selected music
         if let selectedMusicURL = selectedMusicURL {
             do {
@@ -40,6 +49,7 @@ class editPageVc: UIViewController {
             }
         }
     }
+
     // Function to pause the audio player
        func pauseAudioPlayer() {
            if let audioPlayer = audioPlayer {
@@ -128,3 +138,34 @@ class editPageVc: UIViewController {
         }
     }
 }
+extension editPageVc: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if let navigationController = navigationController {
+            switch item.tag {
+            case 0:
+                if let firstTabVc = storyboard?.instantiateViewController(withIdentifier: "FirstTabViewController") {
+                    navigationController.setViewControllers([firstTabVc], animated: false)
+                }
+            case 1:
+                if let secondTabVc = storyboard?.instantiateViewController(withIdentifier: "SecondTabViewController") {
+                    navigationController.setViewControllers([secondTabVc], animated: false)
+                }
+            case 2:
+                if let thirdTabVc = storyboard?.instantiateViewController(withIdentifier: "ThirdTabViewController") {
+                    navigationController.setViewControllers([thirdTabVc], animated: false)
+                }
+            case 3:
+                if let fourthTabVc = storyboard?.instantiateViewController(withIdentifier: "FourthTabViewController") {
+                    navigationController.setViewControllers([fourthTabVc], animated: false)
+                }
+            case 4:
+                if let fifthTabVc = storyboard?.instantiateViewController(withIdentifier: "FifthTabViewController") {
+                    navigationController.setViewControllers([fifthTabVc], animated: false)
+                }
+            default:
+                break
+            }
+        }
+    }
+}
+

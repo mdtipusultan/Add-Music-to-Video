@@ -297,17 +297,9 @@
                                     <tabBarItem title="Effects" image="a" catalog="system" id="1De-a9-8F0">
                                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tabBarItem>
-                                    <tabBarItem tag="1" title="Canvas" image="crop" catalog="system" id="nIY-Or-63f">
-                                        <color key="badgeColor" systemColor="systemIndigoColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                                <color key="value" systemColor="systemRedColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </tabBarItem>
+                                    <tabBarItem tag="1" title="Canvas" image="crop" catalog="system" id="nIY-Or-63f"/>
                                     <tabBarItem tag="2" title="Add Music" id="fdj-KL-IKT">
-                                        <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                        <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large" renderingMode="original"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                                 <color key="value" systemColor="systemOrangeColor"/>
@@ -318,12 +310,7 @@
                                     <tabBarItem tag="4" title="Edit" image="creditcard.and.123" catalog="system" id="h5C-I2-Ih4"/>
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                        <color key="value" systemColor="systemMintColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <color key="selectedImageTintColor" red="0.50980401040000001" green="0.50980395079999996" blue="0.50980401040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JwE-m7-N56"/>
@@ -363,37 +350,50 @@
             </objects>
             <point key="canvasLocation" x="5046.5648854961828" y="5.6338028169014089"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="KFO-un-GCH">
-            <objects>
-                <viewController storyboardIdentifier="ThirdTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OjQ-eO-Seo" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wQt-6s-ukQ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="1fF-mq-XSn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="1i2-WA-ok5"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QQp-E3-GfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9408.3969465648843" y="-197.18309859154931"/>
-        </scene>
-        <!--View Controller-->
+        <!--EffectsVC-->
         <scene sceneID="IR0-CW-0cu">
             <objects>
-                <viewController storyboardIdentifier="FirstTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Ex-1R-kui" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Ex-1R-kui" customClass="AIEffectsVC" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5O9-f5-smd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Znu-Fa-lFR">
+                                <rect key="frame" x="0.0" y="718" width="393" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1cz-6V-Fh5">
+                                    <size key="itemSize" width="112" height="61"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="mq1-GD-WRQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="112" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IBa-1p-Bvm">
+                                            <rect key="frame" x="0.0" y="0.0" width="112" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="112" height="61"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HZf-OD-5ju"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Znu-Fa-lFR" firstAttribute="leading" secondItem="HZf-OD-5ju" secondAttribute="leading" id="7Ba-vL-yf1"/>
+                            <constraint firstItem="HZf-OD-5ju" firstAttribute="trailing" secondItem="Znu-Fa-lFR" secondAttribute="trailing" id="GUa-2q-eGd"/>
+                            <constraint firstItem="HZf-OD-5ju" firstAttribute="bottom" secondItem="Znu-Fa-lFR" secondAttribute="bottom" id="Krv-No-Tcv"/>
+                            <constraint firstItem="Znu-Fa-lFR" firstAttribute="height" secondItem="5O9-f5-smd" secondAttribute="height" multiplier="100/852" id="faM-Bl-Zqz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZWO-tt-Qby">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qnm-z2-PNc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zrz-XF-TGr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="zrz-XF-TGr">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
@@ -402,21 +402,65 @@
             </objects>
             <point key="canvasLocation" x="7095.419847328244" y="-158.45070422535213"/>
         </scene>
-        <!--Item-->
+        <!--CanvasVC-->
         <scene sceneID="BJY-gu-wjv">
             <objects>
-                <viewController storyboardIdentifier="SecondTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DYy-oJ-ieg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CanvasVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DYy-oJ-ieg" customClass="CanvasVC" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IEM-5n-VlR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H9L-de-YKo">
+                                <rect key="frame" x="0.0" y="698" width="393" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Qm-M7-VNm">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="l9w-N2-r0E" customClass="CroppingRatioCollectionViewCell" customModule="Add_Music_to_Video" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-4" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Uww-kt-pfM">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PVd-KI-Tj8"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H9L-de-YKo" firstAttribute="leading" secondItem="PVd-KI-Tj8" secondAttribute="leading" id="8hG-6T-xMc"/>
+                            <constraint firstItem="PVd-KI-Tj8" firstAttribute="bottom" secondItem="H9L-de-YKo" secondAttribute="bottom" id="M7H-VF-E85"/>
+                            <constraint firstItem="PVd-KI-Tj8" firstAttribute="trailing" secondItem="H9L-de-YKo" secondAttribute="trailing" id="WlX-53-cxj"/>
+                            <constraint firstItem="H9L-de-YKo" firstAttribute="height" secondItem="IEM-5n-VlR" secondAttribute="height" multiplier="120/852" id="nXk-uT-e8t"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="c9m-PF-TtA"/>
+                    <navigationItem key="navigationItem" id="58O-SP-Omr">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QT9-hc-92s">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancleButtonTapped:" destination="DYy-oJ-ieg" id="uUa-ji-du6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uap-iv-Lgz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="DYy-oJ-ieg" id="Yw5-zj-3mi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="coollectionview" destination="H9L-de-YKo" id="YC6-aC-bCY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqy-K9-j1j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8153.4351145038163" y="-158.45070422535213"/>
+            <point key="canvasLocation" x="9080.1526717557244" y="-158.45070422535213"/>
         </scene>
         <!--PurchaseVC-->
         <scene sceneID="Wg4-hU-jx6">
@@ -978,7 +1022,7 @@
         <!--Item-->
         <scene sceneID="nBm-rC-RNd">
             <objects>
-                <viewController storyboardIdentifier="FiftthTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fcq-kO-3U2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FifthTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fcq-kO-3U2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wBs-L7-fLE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1030,7 +1074,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Huj-fE-8qu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6168.7022900763359" y="-158.45070422535213"/>
+            <point key="canvasLocation" x="6295" y="-158"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="iZk-21-1zh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kKy-1O-mUL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="c9m-PF-TtA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rgm-6v-ghX">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DYy-oJ-ieg" kind="relationship" relationship="rootViewController" id="qRK-Lg-GHZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qjA-et-DFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8153.4351145038163" y="-158.45070422535213"/>
         </scene>
     </scenes>
     <resources>
@@ -1061,12 +1124,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

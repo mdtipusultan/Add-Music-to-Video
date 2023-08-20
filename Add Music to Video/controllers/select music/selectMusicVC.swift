@@ -14,6 +14,7 @@ class selectMusicVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     @IBOutlet weak var coleectionview: UICollectionView!
     
     var selectedVideoURL: URL?
+    var selectedMusicURL: URL?
     var reachability: Reachability!
     /*
      // Example data for the second section
@@ -148,7 +149,7 @@ extension selectMusicVC: UIDocumentPickerDelegate {
         guard let selectedMusicURL = urls.first else {
             return
         }
-        
+        self.selectedMusicURL = selectedMusicURL // Store the selected music URL
         // Instantiate the editPageVc view controller
         let storyboard = UIStoryboard(name: "Main", bundle: nil) // Update with your storyboard name
         if let editPageVC = storyboard.instantiateViewController(withIdentifier: "editPage") as? editPageVc {

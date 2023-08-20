@@ -16,6 +16,7 @@
 		E8BAEBDD2A83FAA200A79B53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BAEBDB2A83FAA200A79B53 /* LaunchScreen.storyboard */; };
 		E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE42A84020E00A79B53 /* HomeVC.swift */; };
 		E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */; };
+		E8C768532A92588E00B4631D /* CroppingRatioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C768522A92588E00B4631D /* CroppingRatioCollectionViewCell.swift */; };
 		E8C7B2352A90FC5B002AB826 /* AIEffectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2342A90FC5B002AB826 /* AIEffectsVC.swift */; };
 		E8C7B2372A90FC81002AB826 /* CanvasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2362A90FC81002AB826 /* CanvasVC.swift */; };
 		E8C7B2392A911DC3002AB826 /* home2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2382A911DC3002AB826 /* home2CollectionViewCell.swift */; };
@@ -46,6 +47,7 @@
 		E8BAEBDE2A83FAA200A79B53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8BAEBE42A84020E00A79B53 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8C768522A92588E00B4631D /* CroppingRatioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroppingRatioCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8C7B2342A90FC5B002AB826 /* AIEffectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIEffectsVC.swift; sourceTree = "<group>"; };
 		E8C7B2362A90FC81002AB826 /* CanvasVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasVC.swift; sourceTree = "<group>"; };
 		E8C7B2382A911DC3002AB826 /* home2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = home2CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -128,11 +130,20 @@
 			path = "Add Music to Video";
 			sourceTree = "<group>";
 		};
+		E8C768542A92676600B4631D /* canvas */ = {
+			isa = PBXGroup;
+			children = (
+				E8C7B2362A90FC81002AB826 /* CanvasVC.swift */,
+				E8C768522A92588E00B4631D /* CroppingRatioCollectionViewCell.swift */,
+			);
+			path = canvas;
+			sourceTree = "<group>";
+		};
 		E8C7B2332A90FBFA002AB826 /* tabbarItems */ = {
 			isa = PBXGroup;
 			children = (
 				E8C7B2342A90FC5B002AB826 /* AIEffectsVC.swift */,
-				E8C7B2362A90FC81002AB826 /* CanvasVC.swift */,
+				E8C768542A92676600B4631D /* canvas */,
 			);
 			path = tabbarItems;
 			sourceTree = "<group>";
@@ -189,8 +200,8 @@
 		E8FDA5402A8D575900FDC578 /* editpage */ = {
 			isa = PBXGroup;
 			children = (
-				E8C7B2332A90FBFA002AB826 /* tabbarItems */,
 				E8FDA5412A8D578100FDC578 /* editPageVc.swift */,
+				E8C7B2332A90FBFA002AB826 /* tabbarItems */,
 			);
 			path = editpage;
 			sourceTree = "<group>";
@@ -315,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8C768532A92588E00B4631D /* CroppingRatioCollectionViewCell.swift in Sources */,
 				E8FDA53D2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift in Sources */,
 				E8C7B2372A90FC81002AB826 /* CanvasVC.swift in Sources */,
 				E8FDA53B2A8CC92500FDC578 /* selectMusicVC.swift in Sources */,

@@ -15,12 +15,12 @@ class editPageVc: UIViewController {
     @IBOutlet weak var musicView: UIView!
     
     @IBOutlet weak var tabBar: UITabBar!
-
+    
     override func viewDidLoad(){
         super.viewDidLoad()
-       
+        
         tabBar.delegate = self
-    
+        
         // Hide the back button
         navigationItem.setHidesBackButton(true, animated: false)
         
@@ -36,7 +36,7 @@ class editPageVc: UIViewController {
             playerLayer.frame = videooView.bounds
             playerLayer.contentsGravity = .center
         }
-
+        
         // Play the selected music
         if let selectedMusicURL = selectedMusicURL {
             do {
@@ -48,79 +48,77 @@ class editPageVc: UIViewController {
             }
         }
     }
-
+    
     // Function to pause the audio player
-       func pauseAudioPlayer() {
-           if let audioPlayer = audioPlayer {
-               if audioPlayer.isPlaying {
-                   audioPlayer.pause()
-               }
-           }
-       }
+    func pauseAudioPlayer() {
+        if let audioPlayer = audioPlayer {
+            if audioPlayer.isPlaying {
+                audioPlayer.pause()
+            }
+        }
+    }
     
     @IBAction func newButtonTapped(_ sender: UIBarButtonItem) {
-            // Show a confirmation alert
-            let alertController = UIAlertController(title: "Confirm", message: "Are you sure you want to go back to the home screen?", preferredStyle: .alert)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
-                // Navigate back to the root view controller (HomeVC)
-                self.navigationController?.popToRootViewController(animated: true)
-            }
-            
-            alertController.addAction(cancelAction)
-            alertController.addAction(confirmAction)
-            
-            present(alertController, animated: true, completion: nil)
+        // Show a confirmation alert
+        let alertController = UIAlertController(title: "Confirm", message: "Are you sure you want to go back to the home screen?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+            // Navigate back to the root view controller (HomeVC)
+            self.navigationController?.popToRootViewController(animated: true)
         }
-
-    
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
     
     // Function to save the video with music and clip the music
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-            guard let selectedVideoURL = selectedVideoURL else {
-                return
-            }
-            
-            // Pause the audio player before exporting
-            pauseAudioPlayer()
-            
-            // Create a video composition
-            let composition = AVMutableComposition()
-            
-            // Video track
-            let videoAsset = AVAsset(url: selectedVideoURL)
-            let videoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
-            try? videoTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: videoAsset.duration), of: videoAsset.tracks(withMediaType: .video)[0], at: .zero)
-            
-            // Music track (only if there's a selectedMusicURL)
-            if let selectedMusicURL = selectedMusicURL {
-                let musicAsset = AVAsset(url: selectedMusicURL)
-                let musicTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-                try? musicTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: videoAsset.duration), of: musicAsset.tracks(withMediaType: .audio)[0], at: .zero)
-            }
-            
-            // Export the composition
-            let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)
-            exportSession?.outputFileType = .mov // Adjust the desired output format
-            
-            // Create a URL for the output file in the Documents directory
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            let outputFileName = "output_\(Date().timeIntervalSince1970).mov" // Using timestamp as part of the file name
-            let outputURL = documentsDirectory.appendingPathComponent(outputFileName)
-            
-            exportSession?.outputURL = outputURL
-            
-            exportSession?.exportAsynchronously {
-                if exportSession?.status == .completed {
-                    // Save the video to the photo library
-                    self.saveToGallery(url: outputURL)
-                } else {
-                    print("Export failed: \(exportSession?.error?.localizedDescription ?? "Unknown error")")
-                }
+        guard let selectedVideoURL = selectedVideoURL else {
+            return
+        }
+        
+        // Pause the audio player before exporting
+        pauseAudioPlayer()
+        
+        // Create a video composition
+        let composition = AVMutableComposition()
+        
+        // Video track
+        let videoAsset = AVAsset(url: selectedVideoURL)
+        let videoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+        try? videoTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: videoAsset.duration), of: videoAsset.tracks(withMediaType: .video)[0], at: .zero)
+        
+        // Music track (only if there's a selectedMusicURL)
+        if let selectedMusicURL = selectedMusicURL {
+            let musicAsset = AVAsset(url: selectedMusicURL)
+            let musicTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+            try? musicTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: videoAsset.duration), of: musicAsset.tracks(withMediaType: .audio)[0], at: .zero)
+        }
+        
+        // Export the composition
+        let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)
+        exportSession?.outputFileType = .mov // Adjust the desired output format
+        
+        // Create a URL for the output file in the Documents directory
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let outputFileName = "output_\(Date().timeIntervalSince1970).mov" // Using timestamp as part of the file name
+        let outputURL = documentsDirectory.appendingPathComponent(outputFileName)
+        
+        exportSession?.outputURL = outputURL
+        
+        exportSession?.exportAsynchronously {
+            if exportSession?.status == .completed {
+                // Save the video to the photo library
+                self.saveToGallery(url: outputURL)
+            } else {
+                print("Export failed: \(exportSession?.error?.localizedDescription ?? "Unknown error")")
             }
         }
-
+    }
+    
     func saveToGallery(url: URL?) {
         guard let videoURL = url else {
             return
@@ -139,6 +137,7 @@ class editPageVc: UIViewController {
 }
 extension editPageVc: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        videoPlayer?.pause()
         if let navigationController = navigationController {
             switch item.tag {
             case 0:
@@ -150,8 +149,9 @@ extension editPageVc: UITabBarDelegate {
                     navigationController.setViewControllers([secondTabVc], animated: false)
                 }
             case 2:
-                if let thirdTabVc = storyboard?.instantiateViewController(withIdentifier: "ThirdTabViewController") {
-                    navigationController.setViewControllers([thirdTabVc], animated: false)
+                if let selectMusicVc = storyboard?.instantiateViewController(withIdentifier: "SelectMusicViewController") as? selectMusicVC {
+                    selectMusicVc.selectedVideoURL = selectedVideoURL // Pass the selected video URL
+                    navigationController.pushViewController(selectMusicVc, animated: false)
                 }
             case 3:
                 if let fourthTabVc = storyboard?.instantiateViewController(withIdentifier: "FourthTabViewController") {
@@ -165,7 +165,5 @@ extension editPageVc: UITabBarDelegate {
                 break
             }
         }
-       
     }
 }
-

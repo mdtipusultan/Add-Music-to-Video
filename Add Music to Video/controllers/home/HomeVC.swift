@@ -73,6 +73,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             cell.backgroundColor = .lightGray // Set your desired cell color
             // Configure the cell content for the first section
             cell.title1.text = "Add Music to Video"
+    
             
             return cell
         } else {
@@ -170,18 +171,16 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-           // print("Calculating size for section 0")
-            print(CGSize(width: collectionView.bounds.width, height: 80))
-            return CGSize(width: collectionView.bounds.width, height: 80)
+            return CGSize(width: collectionview.bounds.width, height: 80) // Adjust the width and height as needed
+            
         } else {
-            //print("Calculating size for section 1")
             let spacing: CGFloat = 5
             let availableWidth = collectionView.bounds.width - spacing * 4 // Two 10pt spacings and two 50% widths
             let cellWidth = availableWidth / 2
             return CGSize(width: cellWidth, height: 50) // Using square cells for simplicity
         }
+        
     }
-
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {

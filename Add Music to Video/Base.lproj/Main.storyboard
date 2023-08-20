@@ -43,23 +43,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="devil" translatesAutoresizingMaskIntoConstraints="NO" id="lzg-DO-yNp">
-                                                    <rect key="frame" x="50" y="23.333333333333332" width="33.333333333333343" height="33.333333333333343"/>
-                                                    <color key="tintColor" systemColor="systemOrangeColor"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Music To Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSQ-o2-OnI">
                                                     <rect key="frame" x="99.999999999999986" y="26.333333333333329" width="204.66666666666663" height="27.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="devil" translatesAutoresizingMaskIntoConstraints="NO" id="lzg-DO-yNp">
+                                                    <rect key="frame" x="50" y="23.333333333333332" width="33.333333333333343" height="33.333333333333343"/>
+                                                    <color key="tintColor" systemColor="systemOrangeColor"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.27058821919999998" green="0.27058821919999998" blue="0.27058821919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
-                                                <constraint firstItem="lzg-DO-yNp" firstAttribute="centerY" secondItem="hmA-jx-kL5" secondAttribute="centerY" id="5nY-9k-kLf"/>
+                                                <constraint firstItem="lzg-DO-yNp" firstAttribute="leading" secondItem="hmA-jx-kL5" secondAttribute="trailing" multiplier="50/353" id="1vA-fJ-km9"/>
                                                 <constraint firstItem="JSQ-o2-OnI" firstAttribute="centerY" secondItem="hmA-jx-kL5" secondAttribute="centerY" id="FcL-Gv-gly"/>
+                                                <constraint firstItem="lzg-DO-yNp" firstAttribute="centerY" secondItem="hmA-jx-kL5" secondAttribute="centerY" id="Phz-Aj-Hr4"/>
                                                 <constraint firstItem="JSQ-o2-OnI" firstAttribute="leading" secondItem="hmA-jx-kL5" secondAttribute="trailing" multiplier="100/353" id="XHA-H8-dX9"/>
-                                                <constraint firstItem="lzg-DO-yNp" firstAttribute="leading" secondItem="hmA-jx-kL5" secondAttribute="trailing" multiplier="50/353" id="kHA-la-eC5"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="353" height="80"/>
@@ -366,7 +366,7 @@
         <!--Item-->
         <scene sceneID="KFO-un-GCH">
             <objects>
-                <viewController id="OjQ-eO-Seo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OjQ-eO-Seo" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wQt-6s-ukQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -962,7 +962,7 @@
         <!--Item-->
         <scene sceneID="KjE-eX-Qib">
             <objects>
-                <viewController id="euL-Pc-mNL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FourthTabViewController" id="euL-Pc-mNL" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wy7-5P-np6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -978,7 +978,7 @@
         <!--Item-->
         <scene sceneID="nBm-rC-RNd">
             <objects>
-                <viewController id="Fcq-kO-3U2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FiftthTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fcq-kO-3U2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wBs-L7-fLE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

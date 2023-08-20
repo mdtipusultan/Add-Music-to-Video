@@ -68,14 +68,11 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! HomeCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! home2CollectionViewCell
             cell.layer.cornerRadius = 10
             cell.backgroundColor = .lightGray // Set your desired cell color
             // Configure the cell content for the first section
-            
-            // Adjust the height and width of the imageView in the first cell
-            let newImageViewSize = CGSize(width: 120, height: 120) // Set your desired size
-            cell.imageView.frame.size = newImageViewSize
+            cell.title1.text = "Add Music to Video"
             
             return cell
         } else {
@@ -173,15 +170,18 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: collectionview.bounds.width, height: 80) // Adjust the width and height as needed
-            
+           // print("Calculating size for section 0")
+            print(CGSize(width: collectionView.bounds.width, height: 80))
+            return CGSize(width: collectionView.bounds.width, height: 80)
         } else {
+            //print("Calculating size for section 1")
             let spacing: CGFloat = 5
             let availableWidth = collectionView.bounds.width - spacing * 4 // Two 10pt spacings and two 50% widths
             let cellWidth = availableWidth / 2
             return CGSize(width: cellWidth, height: 50) // Using square cells for simplicity
         }
     }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {

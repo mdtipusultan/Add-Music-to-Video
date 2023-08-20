@@ -18,6 +18,7 @@
 		E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */; };
 		E8C7B2352A90FC5B002AB826 /* AIEffectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2342A90FC5B002AB826 /* AIEffectsVC.swift */; };
 		E8C7B2372A90FC81002AB826 /* CanvasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2362A90FC81002AB826 /* CanvasVC.swift */; };
+		E8C7B2392A911DC3002AB826 /* home2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2382A911DC3002AB826 /* home2CollectionViewCell.swift */; };
 		E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */; };
 		E8D9139A2A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8D913992A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 */; };
 		E8D9139C2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8D9139B2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 */; };
@@ -47,6 +48,7 @@
 		E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8C7B2342A90FC5B002AB826 /* AIEffectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIEffectsVC.swift; sourceTree = "<group>"; };
 		E8C7B2362A90FC81002AB826 /* CanvasVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasVC.swift; sourceTree = "<group>"; };
+		E8C7B2382A911DC3002AB826 /* home2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = home2CollectionViewCell.swift; sourceTree = "<group>"; };
 		E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsTableViewCell.swift; sourceTree = "<group>"; };
 		E8D913992A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mixkit-waterfall-in-forest-2213-medium.mp4"; sourceTree = "<group>"; };
 		E8D9139B2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				E8BAEBE42A84020E00A79B53 /* HomeVC.swift */,
+				E8C7B2382A911DC3002AB826 /* home2CollectionViewCell.swift */,
 				E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */,
 			);
 			path = home;
@@ -316,6 +319,7 @@
 				E8C7B2372A90FC81002AB826 /* CanvasVC.swift in Sources */,
 				E8FDA53B2A8CC92500FDC578 /* selectMusicVC.swift in Sources */,
 				E8FDA5422A8D578100FDC578 /* editPageVc.swift in Sources */,
+				E8C7B2392A911DC3002AB826 /* home2CollectionViewCell.swift in Sources */,
 				E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */,
 				E8BAEBD12A83FA9F00A79B53 /* AppDelegate.swift in Sources */,
 				E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */,

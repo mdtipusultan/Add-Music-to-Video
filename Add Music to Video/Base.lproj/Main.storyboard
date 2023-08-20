@@ -36,36 +36,36 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell1" id="oam-oq-nRr" customClass="HomeCollectionViewCell" customModule="Add_Music_to_Video" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell1" id="oam-oq-nRr" customClass="home2CollectionViewCell" customModule="Add_Music_to_Video" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hmA-jx-kL5">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note.tv" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lzg-DO-yNp">
-                                                    <rect key="frame" x="45" y="31.000000000000004" width="25" height="19.000000000000011"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="devil" translatesAutoresizingMaskIntoConstraints="NO" id="lzg-DO-yNp">
+                                                    <rect key="frame" x="50" y="23.333333333333332" width="33.333333333333343" height="33.333333333333343"/>
                                                     <color key="tintColor" systemColor="systemOrangeColor"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Music to Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pq-DO-9Kj">
-                                                    <rect key="frame" x="99.999999999999986" y="27" width="189.66666666666663" height="26"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Music To Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSQ-o2-OnI">
+                                                    <rect key="frame" x="99.999999999999986" y="26.333333333333329" width="204.66666666666663" height="27.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.27058821919999998" green="0.27058821919999998" blue="0.27058821919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
-                                                <constraint firstItem="2Pq-DO-9Kj" firstAttribute="centerY" secondItem="hmA-jx-kL5" secondAttribute="centerY" id="3Xu-Y3-IV6"/>
-                                                <constraint firstItem="lzg-DO-yNp" firstAttribute="centerY" secondItem="hmA-jx-kL5" secondAttribute="centerY" id="E8t-Nh-ono"/>
-                                                <constraint firstItem="2Pq-DO-9Kj" firstAttribute="leading" secondItem="hmA-jx-kL5" secondAttribute="trailing" multiplier="100/353" id="Wol-ih-gqK"/>
-                                                <constraint firstItem="lzg-DO-yNp" firstAttribute="leading" secondItem="hmA-jx-kL5" secondAttribute="trailing" multiplier="45/353" id="yMv-p0-LlS"/>
+                                                <constraint firstItem="lzg-DO-yNp" firstAttribute="centerY" secondItem="hmA-jx-kL5" secondAttribute="centerY" id="5nY-9k-kLf"/>
+                                                <constraint firstItem="JSQ-o2-OnI" firstAttribute="centerY" secondItem="hmA-jx-kL5" secondAttribute="centerY" id="FcL-Gv-gly"/>
+                                                <constraint firstItem="JSQ-o2-OnI" firstAttribute="leading" secondItem="hmA-jx-kL5" secondAttribute="trailing" multiplier="100/353" id="XHA-H8-dX9"/>
+                                                <constraint firstItem="lzg-DO-yNp" firstAttribute="leading" secondItem="hmA-jx-kL5" secondAttribute="trailing" multiplier="50/353" id="kHA-la-eC5"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="353" height="80"/>
                                         <connections>
-                                            <outlet property="imageView" destination="lzg-DO-yNp" id="pil-Ia-xvP"/>
-                                            <outlet property="titleLabel" destination="2Pq-DO-9Kj" id="BwO-Ae-evl"/>
+                                            <outlet property="imageView1" destination="lzg-DO-yNp" id="d7L-S8-Xw1"/>
+                                            <outlet property="title1" destination="JSQ-o2-OnI" id="bX3-T0-pom"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="brF-9R-yDJ" customClass="HomeCollectionViewCell" customModule="Add_Music_to_Video" customModuleProvider="target">
@@ -1042,8 +1042,8 @@
         <image name="creditcard.and.123" catalog="system" width="128" height="90"/>
         <image name="crop" catalog="system" width="128" height="116"/>
         <image name="crown.fill" catalog="system" width="128" height="92"/>
+        <image name="devil" width="33.333332061767578" height="33.333332061767578"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
-        <image name="music.note.tv" catalog="system" width="128" height="95"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="record.circle" catalog="system" width="128" height="123"/>
         <image name="refrigerator.fill" catalog="system" width="95" height="128"/>

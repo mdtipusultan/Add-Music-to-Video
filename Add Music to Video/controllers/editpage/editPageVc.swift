@@ -146,11 +146,6 @@ extension editPageVc: UITabBarDelegate {
                     navigationController.setViewControllers([firstTabVc], animated: false)
                 }
             case 1:
-                /*
-                if let secondTabVc = storyboard?.instantiateViewController(withIdentifier: "SecondTabViewController") {
-                    navigationController.setViewControllers([secondTabVc], animated: false)
-                }
-                */
                 if let canvasVC = storyboard?.instantiateViewController(withIdentifier: "CanvasVC") as? CanvasVC {
                     navigationController.pushViewController(canvasVC, animated: true)
                 }
@@ -158,9 +153,9 @@ extension editPageVc: UITabBarDelegate {
                 if let selectMusicVc = storyboard?.instantiateViewController(withIdentifier: "SelectMusicViewController") as? selectMusicVC {
                     selectMusicVc.selectedVideoURL = selectedVideoURL // Pass the selected video URL
                     // Check if a music is already selected and pass it if available
-                                       if let selectedMusicURL = audioPlayer?.url {
-                                           selectMusicVc.selectedMusicURL = selectedMusicURL
-                                       }
+                    if let selectedMusicURL = audioPlayer?.url {
+                        selectMusicVc.selectedMusicURL = selectedMusicURL
+                    }
                     navigationController.pushViewController(selectMusicVc, animated: false)
                 }
             case 3:

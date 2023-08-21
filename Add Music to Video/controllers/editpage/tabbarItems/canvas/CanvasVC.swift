@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import AVFoundation
 
-class CanvasVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class CanvasVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,CroppingRatioCellDelegate {
+   
 
     @IBOutlet weak var coollectionview: UICollectionView!
+    var selectedVideoURL: URL? // Add this property
+
+    var selectedCroppingRatio: CGSize?
     
     let croppingRatios: [CGSize] = [
         CGSize(width: 1, height: 1),
@@ -29,32 +34,53 @@ class CanvasVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
 
         coollectionview.delegate = self
                 coollectionview.dataSource = self
-    }
     
+        // Play the video using AVPlayer with the selected cropping ratio
+              if let selectedVideoURL = selectedVideoURL {
+                  let player = AVPlayer(url: selectedVideoURL)
+                  let playerLayer = AVPlayerLayer(player: player)
+                  playerLayer.videoGravity = .resize // Apply the selected cropping ratio
+                  playerLayer.frame = view.bounds
+                  view.layer.addSublayer(playerLayer)
+                  player.play()
+              }
+    }
+    func croppingRatioCell(_ cell: CroppingRatioCollectionViewCell, didSelectRatio ratio: CGSize) {
+         selectedCroppingRatio = ratio
+         coollectionview.reloadData()
+         
+         // Apply the selected cropping ratio to the video player if it's playing
+         let playerLayer = view.layer.sublayers?.compactMap { $0 as? AVPlayerLayer }.first
+         playerLayer?.videoGravity = .resizeAspectFill // Apply the selected cropping ratio
+     }
     @IBAction func cancleButtonTapped(_ sender: UIBarButtonItem) {
-        
-        //dismiss(animated: true, completion: nil)
-       // _ = navigationController?.popViewController(animated: true)
         self.navigationController?.popViewController(animated: true)
-     
-
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
-        
-        
-    }
+            // Apply the selected cropping ratio to the video
+            let playerLayer = view.layer.sublayers?.compactMap { $0 as? AVPlayerLayer }.first
+            playerLayer?.videoGravity = .resizeAspectFill // Apply the selected cropping ratio
+            
+            // Perform any other actions you want
+        }
+
     //MARK: COLLECTIONVIEW
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
           return croppingRatios.count
       }
       
-      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-          let cell = coollectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CroppingRatioCollectionViewCell
-          
-          let ratio = croppingRatios[indexPath.item]
-          cell.ratioLabel.text = "\(Int(ratio.width)):\(Int(ratio.height))"
-          
-          return cell
-      }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = coollectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CroppingRatioCollectionViewCell
+        
+        let ratio = croppingRatios[indexPath.item]
+        cell.ratioLabel.text = "\(Int(ratio.width)):\(Int(ratio.height))"
+        
+        // Set the selected state of the cell based on the selectedCroppingRatio
+        cell.isSelected = ratio == selectedCroppingRatio
+        
+        return cell
+    }
+
+
 }

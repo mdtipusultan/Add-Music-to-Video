@@ -16,6 +16,10 @@ class editPageVc: UIViewController {
     
     @IBOutlet weak var tabBar: UITabBar!
     
+    var stopButton: UIButton!
+    var avPlayer: AVPlayer?
+    var isPlaying = false
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         
@@ -35,6 +39,7 @@ class editPageVc: UIViewController {
             // Update playerLayer's frame to center the video within the videooView
             playerLayer.frame = videooView.bounds
             playerLayer.contentsGravity = .center
+            
         }
         
         // Play the selected music
@@ -47,8 +52,70 @@ class editPageVc: UIViewController {
                 print("Error playing audio: \(error)")
             }
         }
+        
+        // Add tap gesture recognizer to videooView
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(videoViewTapped))
+            videooView.addGestureRecognizer(tapGestureRecognizer)
+        stopoButton()
+        // Add observer for AVPlayerItemDidPlayToEndTime notification
+                NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
+   
+    // Selector for AVPlayerItemDidPlayToEndTime notification
+      @objc func playerDidFinishPlaying(_ notification: Notification) {
+          // Pause the audio player here
+          audioPlayer?.pause()
+      }
+    func stopoButton(){
+      
+        // Create and configure the stop button
+        stopButton = UIButton(type: .custom)
+        stopButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        stopButton.tintColor = UIColor.white
+        stopButton.translatesAutoresizingMaskIntoConstraints = false
+        stopButton.isHidden = true // Initially hide the button
+
+        // Add the stop button as a subview of videooView
+        videooView.addSubview(stopButton)
+
+        // Center the stop button in the videooView
+        NSLayoutConstraint.activate([
+            stopButton.centerXAnchor.constraint(equalTo: videooView.centerXAnchor),
+            stopButton.centerYAnchor.constraint(equalTo: videooView.centerYAnchor)
+        ])
+        
+        
+        // Setup AVPlayer for video and audio
+        if let selectedVideoURL = selectedVideoURL {
+            avPlayer = AVPlayer(url: selectedVideoURL)
+            let playerLayer = AVPlayerLayer(player: avPlayer)
+            playerLayer.videoGravity = .resizeAspect
+            videooView.layer.addSublayer(playerLayer)
+            avPlayer?.play()
+            playerLayer.frame = videooView.bounds
+            playerLayer.contentsGravity = .center
+        }
+        
+        stopButton.isUserInteractionEnabled = false
+    }
+
+    @objc func videoViewTapped() {
+        if let avPlayer = avPlayer {
+            if isPlaying {
+                avPlayer.pause()
+                audioPlayer?.pause()
+                stopButton.isHidden = false
+                isPlaying = false
+            } else {
+                avPlayer.play()
+                audioPlayer?.play()
+                stopButton.isHidden = true
+                isPlaying = true
+            }
+        }
+    }
+
     // Function to pause the audio player
     func pauseAudioPlayer() {
         if let audioPlayer = audioPlayer {
@@ -134,6 +201,9 @@ class editPageVc: UIViewController {
             }
         }
     }
+    deinit {
+           NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+       }
 }
 extension editPageVc: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -147,6 +217,7 @@ extension editPageVc: UITabBarDelegate {
                 }
             case 1:
                 if let canvasVC = storyboard?.instantiateViewController(withIdentifier: "CanvasVC") as? CanvasVC {
+                    canvasVC.selectedVideoURL = selectedVideoURL // Pass the selected video URL
                     navigationController.pushViewController(canvasVC, animated: true)
                 }
             case 2:

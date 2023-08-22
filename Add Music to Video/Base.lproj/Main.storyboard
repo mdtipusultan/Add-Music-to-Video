@@ -411,8 +411,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H9L-de-YKo">
-                                <rect key="frame" x="0.0" y="698" width="393" height="120"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="718" width="393" height="100"/>
+                                <color key="backgroundColor" red="0.23953104019999999" green="0.25079542399999999" blue="0.26274704929999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Qm-M7-VNm">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -421,7 +421,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="l9w-N2-r0E" customClass="CroppingRatioCollectionViewCell" customModule="Add_Music_to_Video" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-4" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="-14" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Uww-kt-pfM">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -437,23 +437,9 @@
                             <constraint firstItem="H9L-de-YKo" firstAttribute="leading" secondItem="PVd-KI-Tj8" secondAttribute="leading" id="8hG-6T-xMc"/>
                             <constraint firstItem="PVd-KI-Tj8" firstAttribute="bottom" secondItem="H9L-de-YKo" secondAttribute="bottom" id="M7H-VF-E85"/>
                             <constraint firstItem="PVd-KI-Tj8" firstAttribute="trailing" secondItem="H9L-de-YKo" secondAttribute="trailing" id="WlX-53-cxj"/>
-                            <constraint firstItem="H9L-de-YKo" firstAttribute="height" secondItem="IEM-5n-VlR" secondAttribute="height" multiplier="120/852" id="nXk-uT-e8t"/>
+                            <constraint firstItem="H9L-de-YKo" firstAttribute="height" secondItem="IEM-5n-VlR" secondAttribute="height" multiplier="100/852" id="nXk-uT-e8t"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="58O-SP-Omr">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QT9-hc-92s">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="cancleButtonTapped:" destination="DYy-oJ-ieg" id="uUa-ji-du6"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uap-iv-Lgz">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="doneButtonTapped:" destination="DYy-oJ-ieg" id="Yw5-zj-3mi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="coollectionview" destination="H9L-de-YKo" id="YC6-aC-bCY"/>
                     </connections>
@@ -1075,25 +1061,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Huj-fE-8qu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6295" y="-158"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="iZk-21-1zh">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kKy-1O-mUL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="c9m-PF-TtA"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rgm-6v-ghX">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="DYy-oJ-ieg" kind="relationship" relationship="rootViewController" id="qRK-Lg-GHZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qjA-et-DFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8153.4351145038163" y="-158.45070422535213"/>
         </scene>
     </scenes>
     <resources>

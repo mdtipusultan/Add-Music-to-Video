@@ -217,9 +217,9 @@ extension editPageVc: UITabBarDelegate {
                 }
             case 1:
                 if let canvasVC = storyboard?.instantiateViewController(withIdentifier: "CanvasVC") as? CanvasVC {
-                    canvasVC.selectedVideoURL = selectedVideoURL // Pass the selected video URL
-                    navigationController.pushViewController(canvasVC, animated: true)
+                    present(canvasVC, animated: true, completion: nil)
                 }
+
             case 2:
                 if let selectMusicVc = storyboard?.instantiateViewController(withIdentifier: "SelectMusicViewController") as? selectMusicVC {
                     selectMusicVc.selectedVideoURL = selectedVideoURL // Pass the selected video URL

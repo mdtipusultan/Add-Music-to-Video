@@ -8,12 +8,11 @@
 import UIKit
 import AVFoundation
 
-class CanvasVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,CroppingRatioCellDelegate {
-   
-
+class CanvasVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource{
+    
+    
     @IBOutlet weak var coollectionview: UICollectionView!
-    var selectedVideoURL: URL? // Add this property
-
+    
     var selectedCroppingRatio: CGSize?
     
     let croppingRatios: [CGSize] = [
@@ -31,56 +30,44 @@ class CanvasVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         coollectionview.delegate = self
-                coollectionview.dataSource = self
-    
-        // Play the video using AVPlayer with the selected cropping ratio
-              if let selectedVideoURL = selectedVideoURL {
-                  let player = AVPlayer(url: selectedVideoURL)
-                  let playerLayer = AVPlayerLayer(player: player)
-                  playerLayer.videoGravity = .resize // Apply the selected cropping ratio
-                  playerLayer.frame = view.bounds
-                  view.layer.addSublayer(playerLayer)
-                  player.play()
-              }
-    }
-    func croppingRatioCell(_ cell: CroppingRatioCollectionViewCell, didSelectRatio ratio: CGSize) {
-         selectedCroppingRatio = ratio
-         coollectionview.reloadData()
-         
-         // Apply the selected cropping ratio to the video player if it's playing
-         let playerLayer = view.layer.sublayers?.compactMap { $0 as? AVPlayerLayer }.first
-         playerLayer?.videoGravity = .resizeAspectFill // Apply the selected cropping ratio
-     }
-    @IBAction func cancleButtonTapped(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+        coollectionview.dataSource = self
     }
     
-    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
-            // Apply the selected cropping ratio to the video
-            let playerLayer = view.layer.sublayers?.compactMap { $0 as? AVPlayerLayer }.first
-            playerLayer?.videoGravity = .resizeAspectFill // Apply the selected cropping ratio
-            
-            // Perform any other actions you want
-        }
-
     //MARK: COLLECTIONVIEW
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-          return croppingRatios.count
-      }
-      
+        return croppingRatios.count
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = coollectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CroppingRatioCollectionViewCell
         
         let ratio = croppingRatios[indexPath.item]
-        cell.ratioLabel.text = "\(Int(ratio.width)):\(Int(ratio.height))"
-        
-        // Set the selected state of the cell based on the selectedCroppingRatio
-        cell.isSelected = ratio == selectedCroppingRatio
+        cell.ratioImageView.image = generateRatioImage(for: ratio, size: cell.contentView.frame.size)
         
         return cell
     }
-
+        
+    private func generateRatioImage(for ratio: CGSize, size: CGSize) -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let image = renderer.image { context in
+            UIColor.red.setFill()
+            context.fill(CGRect(origin: .zero, size: size))
+            
+            let text = "\(Int(ratio.width)):\(Int(ratio.height))"
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: 14),
+                .foregroundColor: UIColor.white
+            ]
+            let textSize = text.size(withAttributes: attributes)
+            let textOrigin = CGPoint(
+                x: (size.width - textSize.width) / 2,
+                y: (size.height - textSize.height) / 2
+            )
+            text.draw(at: textOrigin, withAttributes: attributes)
+        }
+        
+        return image
+        }
 
 }

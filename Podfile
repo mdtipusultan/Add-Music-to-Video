@@ -6,6 +6,6 @@ target 'Add Music to Video' do
   use_frameworks!
 
   # Pods for Add Music to Video
-pod 'GoogleMobileAds'
+pod 'Google-Mobile-Ads-SDK', '~> 10.10.0'
 pod 'ReachabilitySwift'
 end

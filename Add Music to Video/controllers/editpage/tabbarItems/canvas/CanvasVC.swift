@@ -39,35 +39,52 @@ class CanvasVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return croppingRatios.count
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = coollectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CroppingRatioCollectionViewCell
-        
-        let ratio = croppingRatios[indexPath.item]
-        cell.ratioImageView.image = generateRatioImage(for: ratio, size: cell.contentView.frame.size)
-        
-        return cell
-    }
-        
-    private func generateRatioImage(for ratio: CGSize, size: CGSize) -> UIImage? {
-        let renderer = UIGraphicsImageRenderer(size: size)
-        let image = renderer.image { context in
-            UIColor.red.setFill()
-            context.fill(CGRect(origin: .zero, size: size))
+   
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = coollectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CroppingRatioCollectionViewCell
             
-            let text = "\(Int(ratio.width)):\(Int(ratio.height))"
-            let attributes: [NSAttributedString.Key: Any] = [
-                .font: UIFont.systemFont(ofSize: 14),
-                .foregroundColor: UIColor.white
-            ]
-            let textSize = text.size(withAttributes: attributes)
-            let textOrigin = CGPoint(
-                x: (size.width - textSize.width) / 2,
-                y: (size.height - textSize.height) / 2
-            )
-            text.draw(at: textOrigin, withAttributes: attributes)
+            let ratio = croppingRatios[indexPath.item]
+            cell.ratioImageView.image = generateRatioImage(for: ratio, size: cell.contentView.frame.size)
+            
+            return cell
         }
         
-        return image
+        private func generateRatioImage(for ratio: CGSize, size: CGSize) -> UIImage? {
+            let aspectRatio = ratio.width / ratio.height
+            
+            let renderer = UIGraphicsImageRenderer(size: size)
+            let image = renderer.image { context in
+                let canvasSize: CGSize
+                if aspectRatio >= 1 {
+                    canvasSize = CGSize(width: size.width, height: size.width / aspectRatio)
+                } else {
+                    canvasSize = CGSize(width: size.height * aspectRatio, height: size.height)
+                }
+                
+                let canvasRect = CGRect(
+                    origin: CGPoint(
+                        x: (size.width - canvasSize.width) / 2,
+                        y: (size.height - canvasSize.height) / 2
+                    ),
+                    size: canvasSize
+                )
+                
+                UIColor.lightGray.setFill()
+                context.fill(CGRect(origin: .zero, size: size))
+                
+                let text = "\(Int(ratio.width)):\(Int(ratio.height))"
+                let attributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: 14),
+                    .foregroundColor: UIColor.black
+                ]
+                let textSize = text.size(withAttributes: attributes)
+                let textOrigin = CGPoint(
+                    x: (canvasSize.width - textSize.width) / 2 + canvasRect.minX,
+                    y: (canvasSize.height - textSize.height) / 2 + canvasRect.minY
+                )
+                text.draw(at: textOrigin, withAttributes: attributes)
+            }
+            
+            return image
         }
-
 }

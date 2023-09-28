@@ -278,13 +278,13 @@
         <scene sceneID="OuO-Ch-pYJ">
             <objects>
                 <viewController storyboardIdentifier="editPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pCr-EC-76f" customClass="editPageVc" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5eQ-TE-QM2">
+                    <view key="view" contentMode="scaleToFill" id="5eQ-TE-QM2" userLabel="mainView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBG-Ct-B4n" userLabel="VideoView">
                                 <rect key="frame" x="0.0" y="48" width="393" height="400"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWw-Mb-lfO" userLabel="MusicView">
                                 <rect key="frame" x="0.0" y="498" width="393" height="100"/>
@@ -341,6 +341,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editLeftButtoon" destination="CMZ-CJ-wfu" id="Ebk-Kt-iBV"/>
                         <outlet property="musicView" destination="NWw-Mb-lfO" id="INP-6t-2XU"/>
                         <outlet property="tabBar" destination="rJi-nW-LZ9" id="R5m-eF-cFK"/>
                         <outlet property="videooView" destination="dBG-Ct-B4n" id="hIL-Sm-Axr"/>
@@ -348,7 +349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ocm-kw-bN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5046.5648854961828" y="5.6338028169014089"/>
+            <point key="canvasLocation" x="5020.6106870229005" y="5.6338028169014089"/>
         </scene>
         <!--EffectsVC-->
         <scene sceneID="IR0-CW-0cu">
@@ -446,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqy-K9-j1j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9080.1526717557244" y="-158.45070422535213"/>
+            <point key="canvasLocation" x="8378" y="-158"/>
         </scene>
         <!--PurchaseVC-->
         <scene sceneID="Wg4-hU-jx6">
@@ -996,6 +997,13 @@
                     <view key="view" contentMode="scaleToFill" id="Wy7-5P-np6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWa-aP-n9e">
+                                <rect key="frame" x="49" y="320" width="295" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="XfL-Fp-sUO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>

@@ -16,20 +16,18 @@
 		E8BAEBDD2A83FAA200A79B53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BAEBDB2A83FAA200A79B53 /* LaunchScreen.storyboard */; };
 		E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE42A84020E00A79B53 /* HomeVC.swift */; };
 		E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */; };
-		E8C768532A92588E00B4631D /* CroppingRatioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C768522A92588E00B4631D /* CroppingRatioCollectionViewCell.swift */; };
-		E8C7B2352A90FC5B002AB826 /* AIEffectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2342A90FC5B002AB826 /* AIEffectsVC.swift */; };
-		E8C7B2372A90FC81002AB826 /* CanvasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2362A90FC81002AB826 /* CanvasVC.swift */; };
 		E8C7B2392A911DC3002AB826 /* home2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2382A911DC3002AB826 /* home2CollectionViewCell.swift */; };
-		E8C810B22AC4490900443F68 /* cropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C810B12AC4490900443F68 /* cropView.swift */; };
 		E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */; };
 		E8D9139A2A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8D913992A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 */; };
 		E8D9139C2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8D9139B2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 */; };
 		E8D9139E2A88E1C800CC5AF2 /* mixkit-macaw-parrot-feeding-on-a-branch-4669-medium.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8D9139D2A88E1C800CC5AF2 /* mixkit-macaw-parrot-feeding-on-a-branch-4669-medium.mp4 */; };
 		E8D913A02A88EAEF00CC5AF2 /* mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8D9139F2A88EAEF00CC5AF2 /* mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4 */; };
+		E8DCEB882AC7652A0012AAE0 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCEB872AC7652A0012AAE0 /* CanvasView.swift */; };
+		E8DCEB8A2AC766280012AAE0 /* AIEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCEB892AC766280012AAE0 /* AIEffectsView.swift */; };
+		E8DCEB8E2AC7700A0012AAE0 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCEB8D2AC7700A0012AAE0 /* FiltersView.swift */; };
+		E8DCEB902AC770370012AAE0 /* FontsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCEB8F2AC770370012AAE0 /* FontsView.swift */; };
 		E8DFD3CD2A855F5B000B3C22 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */; };
 		E8DFD3CF2A855F7F000B3C22 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */; };
-		E8E5245C2AC4C9FC00B9B1FC /* crop.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E5245B2AC4C9FC00B9B1FC /* crop.xib */; };
-		E8E5245E2AC5269A00B9B1FC /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E5245D2AC5269A00B9B1FC /* CustomCollectionViewCell.swift */; };
 		E8FDA53B2A8CC92500FDC578 /* selectMusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA53A2A8CC92500FDC578 /* selectMusicVC.swift */; };
 		E8FDA53D2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA53C2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift */; };
 		E8FDA53F2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FDA53E2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift */; };
@@ -50,20 +48,18 @@
 		E8BAEBDE2A83FAA200A79B53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8BAEBE42A84020E00A79B53 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
-		E8C768522A92588E00B4631D /* CroppingRatioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroppingRatioCollectionViewCell.swift; sourceTree = "<group>"; };
-		E8C7B2342A90FC5B002AB826 /* AIEffectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIEffectsVC.swift; sourceTree = "<group>"; };
-		E8C7B2362A90FC81002AB826 /* CanvasVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasVC.swift; sourceTree = "<group>"; };
 		E8C7B2382A911DC3002AB826 /* home2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = home2CollectionViewCell.swift; sourceTree = "<group>"; };
-		E8C810B12AC4490900443F68 /* cropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cropView.swift; sourceTree = "<group>"; };
 		E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsTableViewCell.swift; sourceTree = "<group>"; };
 		E8D913992A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mixkit-waterfall-in-forest-2213-medium.mp4"; sourceTree = "<group>"; };
 		E8D9139B2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4"; sourceTree = "<group>"; };
 		E8D9139D2A88E1C800CC5AF2 /* mixkit-macaw-parrot-feeding-on-a-branch-4669-medium.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mixkit-macaw-parrot-feeding-on-a-branch-4669-medium.mp4"; sourceTree = "<group>"; };
 		E8D9139F2A88EAEF00CC5AF2 /* mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4"; sourceTree = "<group>"; };
+		E8DCEB872AC7652A0012AAE0 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		E8DCEB892AC766280012AAE0 /* AIEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIEffectsView.swift; sourceTree = "<group>"; };
+		E8DCEB8D2AC7700A0012AAE0 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
+		E8DCEB8F2AC770370012AAE0 /* FontsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsView.swift; sourceTree = "<group>"; };
 		E8DFD3CC2A855F5B000B3C22 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		E8DFD3CE2A855F7F000B3C22 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
-		E8E5245B2AC4C9FC00B9B1FC /* crop.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = crop.xib; sourceTree = "<group>"; };
-		E8E5245D2AC5269A00B9B1FC /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8FDA53A2A8CC92500FDC578 /* selectMusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectMusicVC.swift; sourceTree = "<group>"; };
 		E8FDA53C2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectMusicCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8FDA53E2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSelectMusicCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -121,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				E8C810AE2AC439B500443F68 /* Views */,
-				E8DFD3CA2A855F20000B3C22 /* controllers */,
+				E8DFD3CA2A855F20000B3C22 /* Controllers */,
 				E8BAEBD02A83FA9F00A79B53 /* AppDelegate.swift */,
 				E8BAEBD22A83FA9F00A79B53 /* SceneDelegate.swift */,
 				E8BAEBD92A83FAA200A79B53 /* Assets.xcassets */,
@@ -138,8 +134,7 @@
 		E8C768542A92676600B4631D /* canvas */ = {
 			isa = PBXGroup;
 			children = (
-				E8C7B2362A90FC81002AB826 /* CanvasVC.swift */,
-				E8C768522A92588E00B4631D /* CroppingRatioCollectionViewCell.swift */,
+				E8DCEB872AC7652A0012AAE0 /* CanvasView.swift */,
 			);
 			path = canvas;
 			sourceTree = "<group>";
@@ -147,8 +142,11 @@
 		E8C7B2332A90FBFA002AB826 /* tabbarItems */ = {
 			isa = PBXGroup;
 			children = (
-				E8C7B2342A90FC5B002AB826 /* AIEffectsVC.swift */,
+				E8DCEB8C2AC76FD60012AAE0 /* fontsView */,
+				E8DCEB8B2AC76FC90012AAE0 /* filterview */,
+				E8DCEB862AC764120012AAE0 /* aiEffects */,
 				E8C768542A92676600B4631D /* canvas */,
+				E8DCEB852AC764080012AAE0 /* filter */,
 			);
 			path = tabbarItems;
 			sourceTree = "<group>";
@@ -162,16 +160,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E8C810B52AC4493500443F68 /* crop */ = {
-			isa = PBXGroup;
-			children = (
-				E8C810B12AC4490900443F68 /* cropView.swift */,
-				E8E5245B2AC4C9FC00B9B1FC /* crop.xib */,
-				E8E5245D2AC5269A00B9B1FC /* CustomCollectionViewCell.swift */,
-			);
-			path = crop;
-			sourceTree = "<group>";
-		};
 		E8D8C1392A86DC3E008B60FD /* settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +169,38 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
-		E8DFD3CA2A855F20000B3C22 /* controllers */ = {
+		E8DCEB852AC764080012AAE0 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = filter;
+			sourceTree = "<group>";
+		};
+		E8DCEB862AC764120012AAE0 /* aiEffects */ = {
+			isa = PBXGroup;
+			children = (
+				E8DCEB892AC766280012AAE0 /* AIEffectsView.swift */,
+			);
+			path = aiEffects;
+			sourceTree = "<group>";
+		};
+		E8DCEB8B2AC76FC90012AAE0 /* filterview */ = {
+			isa = PBXGroup;
+			children = (
+				E8DCEB8D2AC7700A0012AAE0 /* FiltersView.swift */,
+			);
+			path = filterview;
+			sourceTree = "<group>";
+		};
+		E8DCEB8C2AC76FD60012AAE0 /* fontsView */ = {
+			isa = PBXGroup;
+			children = (
+				E8DCEB8F2AC770370012AAE0 /* FontsView.swift */,
+			);
+			path = fontsView;
+			sourceTree = "<group>";
+		};
+		E8DFD3CA2A855F20000B3C22 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				E8FDA5402A8D575900FDC578 /* editpage */,
@@ -190,7 +209,7 @@
 				E8D8C1392A86DC3E008B60FD /* settings */,
 				E8DFD3CB2A855F29000B3C22 /* home */,
 			);
-			path = controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		E8DFD3CB2A855F29000B3C22 /* home */ = {
@@ -224,7 +243,6 @@
 		E8FDA5402A8D575900FDC578 /* editpage */ = {
 			isa = PBXGroup;
 			children = (
-				E8C810B52AC4493500443F68 /* crop */,
 				E8FDA5412A8D578100FDC578 /* editPageVc.swift */,
 				E8C7B2332A90FBFA002AB826 /* tabbarItems */,
 			);
@@ -297,7 +315,6 @@
 				E8BAEBDD2A83FAA200A79B53 /* LaunchScreen.storyboard in Resources */,
 				E8D913A02A88EAEF00CC5AF2 /* mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4 in Resources */,
 				E8BAEBDA2A83FAA200A79B53 /* Assets.xcassets in Resources */,
-				E8E5245C2AC4C9FC00B9B1FC /* crop.xib in Resources */,
 				E8BAEBD82A83FA9F00A79B53 /* Main.storyboard in Resources */,
 				E8D9139A2A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 in Resources */,
 			);
@@ -352,23 +369,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8C768532A92588E00B4631D /* CroppingRatioCollectionViewCell.swift in Sources */,
 				E8FDA53D2A8CE2DE00FDC578 /* selectMusicCollectionViewCell.swift in Sources */,
-				E8C7B2372A90FC81002AB826 /* CanvasVC.swift in Sources */,
 				E8FDA53B2A8CC92500FDC578 /* selectMusicVC.swift in Sources */,
+				E8DCEB882AC7652A0012AAE0 /* CanvasView.swift in Sources */,
 				E8FDA5422A8D578100FDC578 /* editPageVc.swift in Sources */,
+				E8DCEB8E2AC7700A0012AAE0 /* FiltersView.swift in Sources */,
 				E8C7B2392A911DC3002AB826 /* home2CollectionViewCell.swift in Sources */,
 				E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */,
 				E8BAEBD12A83FA9F00A79B53 /* AppDelegate.swift in Sources */,
-				E8E5245E2AC5269A00B9B1FC /* CustomCollectionViewCell.swift in Sources */,
-				E8C810B22AC4490900443F68 /* cropView.swift in Sources */,
 				E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */,
 				E8BAEBD32A83FA9F00A79B53 /* SceneDelegate.swift in Sources */,
 				E8FDA53F2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift in Sources */,
 				E8DFD3CF2A855F7F000B3C22 /* PurchaseVC.swift in Sources */,
+				E8DCEB8A2AC766280012AAE0 /* AIEffectsView.swift in Sources */,
 				E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */,
 				E8DFD3CD2A855F5B000B3C22 /* SettingsVC.swift in Sources */,
-				E8C7B2352A90FC5B002AB826 /* AIEffectsVC.swift in Sources */,
+				E8DCEB902AC770370012AAE0 /* FontsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

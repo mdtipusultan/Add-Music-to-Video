@@ -18,21 +18,61 @@ class editPageVc: UIViewController {
     
     @IBOutlet weak var editLeftButtoon: UIBarButtonItem!
     
-    
     var stopButton: UIButton!
     var avPlayer: AVPlayer?
     var isPlaying = false
     var isCropViewVisible = false
     
     
+    @IBOutlet weak var aiEffectsContainerView: UIView!
+    @IBOutlet weak var canvasContainerView: UIView!
+    @IBOutlet weak var filtersContainerView: UIView!
+    @IBOutlet weak var fontsContainerView: UIView!
+    
+    var aiEffectsView: AIEffectsView?
+    var canvasView: CanvasView?
+    var filtersView: FiltersView?
+    var fontsView: FontsView?
+    
     override func viewDidLoad(){
         super.viewDidLoad()
-       
+        
         tabBar.delegate = self
         
         // Hide the back button
         navigationItem.setHidesBackButton(true, animated: false)
         
+        SelectedAudioVideoPlay()
+        CoontainerViewsSetUp()
+        // Add tap gesture recognizer to videooView
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(videoViewTapped))
+        videooView.addGestureRecognizer(tapGestureRecognizer)
+        stopoButton()
+        // Add observer for AVPlayerItemDidPlayToEndTime notification
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    
+    func CoontainerViewsSetUp(){
+        aiEffectsView = AIEffectsView()
+        canvasView = CanvasView()
+        
+        filtersView = FiltersView()
+        fontsView = FontsView()
+        
+        // Add custom views as subviews to container views
+        aiEffectsContainerView.addSubview(aiEffectsView!)
+        canvasContainerView.addSubview(canvasView!)
+        filtersContainerView.addSubview(filtersView!)
+        fontsContainerView.addSubview(fontsView!)
+        
+        // Hide custom views initially
+        aiEffectsContainerView.isHidden = true
+        canvasContainerView.isHidden = true
+        filtersContainerView.isHidden = true
+        fontsContainerView.isHidden = true
+    }
+    
+    func SelectedAudioVideoPlay(){
         if let selectedVideoURL = selectedVideoURL {
             videoPlayer = AVPlayer(url: selectedVideoURL)
             let playerLayer = AVPlayerLayer(player: videoPlayer)
@@ -44,7 +84,6 @@ class editPageVc: UIViewController {
             // Update playerLayer's frame to center the video within the videooView
             playerLayer.frame = videooView.bounds
             playerLayer.contentsGravity = .center
-            
         }
         
         // Play the selected music
@@ -57,14 +96,75 @@ class editPageVc: UIViewController {
                 print("Error playing audio: \(error)")
             }
         }
-        
-        // Add tap gesture recognizer to videooView
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(videoViewTapped))
-        videooView.addGestureRecognizer(tapGestureRecognizer)
-        stopoButton()
-        // Add observer for AVPlayerItemDidPlayToEndTime notification
-        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
+    //MARK: CONTAINERVIEWS SHOOW-HIDE
+    // Function to show a specific container view with animation
+    func showContainerView(containerView: UIView) {
+        UIView.animate(withDuration: 0.3) {
+            containerView.isHidden = false
+            containerView.frame.origin.y = self.view.frame.height - containerView.frame.height
+        }
+        editLeftButtoon.title = "Cancle"
+    }
+    
+    // Function to hide a specific container view with animation
+    func hideContainerView(containerView: UIView) {
+        UIView.animate(withDuration: 0.3) {
+            containerView.frame.origin.y = self.view.frame.height
+        } completion: { _ in
+            containerView.isHidden = true
+        }
+        editLeftButtoon.title = "New"
+    }
+    
+    // Example usage when a user taps a tab bar item
+        func showEditingOptionForTabBarItem(tabBarItemIndex: Int) {
+            // Hide all container views
+            aiEffectsContainerView.isHidden = true
+            canvasContainerView.isHidden = true
+        
+            filtersContainerView.isHidden = true
+            fontsContainerView.isHidden = true
+
+            // Show the selected container view
+            switch tabBarItemIndex {
+            case 0:
+                showContainerView(containerView: aiEffectsContainerView)
+            case 1:
+                showContainerView(containerView: canvasContainerView)
+            case 2:
+                if let selectMusicVc = storyboard?.instantiateViewController(withIdentifier: "SelectMusicViewController") as? selectMusicVC {
+                    selectMusicVc.selectedVideoURL = selectedVideoURL // Pass the selected video URL
+                    // Check if a music is already selected and pass it if available
+                    if let selectedMusicURL = audioPlayer?.url {
+                        selectMusicVc.selectedMusicURL = selectedMusicURL
+                    }
+                    navigationController?.pushViewController(selectMusicVc, animated: false)
+                }
+            case 3:
+                showContainerView(containerView: filtersContainerView)
+            case 4:
+                showContainerView(containerView: fontsContainerView)
+            default:
+                break
+            }
+        }
+
+        // Example usage when a user taps a cancel button in each editing option view
+        func hideEditingOptionForTabBarItem(tabBarItemIndex: Int) {
+            switch tabBarItemIndex {
+            case 0:
+                hideContainerView(containerView: aiEffectsContainerView)
+            case 1:
+                hideContainerView(containerView: canvasContainerView)
+            case 3:
+                hideContainerView(containerView: filtersContainerView)
+            case 4:
+                hideContainerView(containerView: fontsContainerView)
+            default:
+                break
+            }
+        }
     
     // Selector for AVPlayerItemDidPlayToEndTime notification
     @objc func playerDidFinishPlaying(_ notification: Notification) {
@@ -88,7 +188,6 @@ class editPageVc: UIViewController {
             stopButton.centerXAnchor.constraint(equalTo: videooView.centerXAnchor),
             stopButton.centerYAnchor.constraint(equalTo: videooView.centerYAnchor)
         ])
-        
         
         // Setup AVPlayer for video and audio
         if let selectedVideoURL = selectedVideoURL {
@@ -128,39 +227,38 @@ class editPageVc: UIViewController {
             }
         }
     }
-    
+    //MARK: NAVBAR BUTTONS
     @IBAction func newButtonTapped(_ sender: UIBarButtonItem) {
-        if isCropViewVisible {
+        if let tabBar = self.tabBar,
+           let selectedIndex = tabBar.selectedItem?.tag {
             
-            // For example, you can dismiss the cropView if it's currently displayed:
-            if let cropView = view.subviews.first(where: { $0 is cropView }) {
-                // Animate the cropView off the screen
-                UIView.animate(withDuration: 0.3) {
-                    cropView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
-                } completion: { _ in
-                    // Remove the cropView from the superview
-                    cropView.removeFromSuperview()
+            if editLeftButtoon.title == "New" {
+                // If it's not the second tab, show a confirmation alert
+                let alertController = UIAlertController(title: "Confirm", message: "Are you sure you want to go back to the home screen?", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+                    // Navigate back to the root view controller (HomeVC)
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
+                
+                alertController.addAction(cancelAction)
+                alertController.addAction(confirmAction)
+                
+                present(alertController, animated: true, completion: nil)
+                
             }
-            isCropViewVisible = false
-            editLeftButtoon.title = "New"
-            
-        } else {
-            
-            // If it's not the second tab, show a confirmation alert
-            let alertController = UIAlertController(title: "Confirm", message: "Are you sure you want to go back to the home screen?", preferredStyle: .alert)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
-                // Navigate back to the root view controller (HomeVC)
-                self.navigationController?.popToRootViewController(animated: true)
+            else{
+                // Call the function to hide the corresponding container view
+                hideEditingOptionForTabBarItem(tabBarItemIndex: selectedIndex)
             }
             
-            alertController.addAction(cancelAction)
-            alertController.addAction(confirmAction)
-            
-            present(alertController, animated: true, completion: nil)
+          
         }
+       
+            
+           
+        
     }
     
     // Function to save the video with music and clip the music
@@ -227,55 +325,14 @@ class editPageVc: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
 }
+
 extension editPageVc: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         videoPlayer?.pause()
         audioPlayer?.pause()
-        if let navigationController = navigationController {
-            switch item.tag {
-            case 0:
-                if let firstTabVc = storyboard?.instantiateViewController(withIdentifier: "FirstTabViewController") {
-                    navigationController.setViewControllers([firstTabVc], animated: false)
-                }
-            case 1:
-                // Create the cropView and set its initial frame below the screen
-                let initialFrame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: 200)
-                let cropNib = Bundle.main.loadNibNamed("crop", owner: self, options: nil)?.first as? cropView
-                cropNib?.frame = initialFrame
-                cropNib?.setupCollectionView()
-                // Add the cropView as a subview
-                if let cropView = cropNib {
-                    self.view.addSubview(cropView)
-                    
-                    // Animate the slide-up effect
-                    UIView.animate(withDuration: 0.3) {
-                        cropView.frame = CGRect(x: 0, y: self.view.frame.height - 200, width: self.view.frame.width, height: 200)
-                    }
-                    
-                    // Update the flag to indicate that the cropView is visible
-                    isCropViewVisible = true
-                    editLeftButtoon.title = "Cancle"
-                }
-            case 2:
-                if let selectMusicVc = storyboard?.instantiateViewController(withIdentifier: "SelectMusicViewController") as? selectMusicVC {
-                    selectMusicVc.selectedVideoURL = selectedVideoURL // Pass the selected video URL
-                    // Check if a music is already selected and pass it if available
-                    if let selectedMusicURL = audioPlayer?.url {
-                        selectMusicVc.selectedMusicURL = selectedMusicURL
-                    }
-                    navigationController.pushViewController(selectMusicVc, animated: false)
-                }
-            case 3:
-                if let fourthTabVc = storyboard?.instantiateViewController(withIdentifier: "FourthTabViewController") {
-                    navigationController.setViewControllers([fourthTabVc], animated: false)
-                }
-            case 4:
-                if let fifthTabVc = storyboard?.instantiateViewController(withIdentifier: "FifthTabViewController") {
-                    navigationController.setViewControllers([fifthTabVc], animated: false)
-                }
-            default:
-                break
-            }
+        // You can identify the selected item by its tag or other properties
+        if let itemIndex = tabBar.items?.firstIndex(of: item) {
+            showEditingOptionForTabBarItem(tabBarItemIndex: itemIndex)
         }
     }
 }

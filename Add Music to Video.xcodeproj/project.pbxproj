@@ -17,6 +17,7 @@
 		E8BAEBE52A84020E00A79B53 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE42A84020E00A79B53 /* HomeVC.swift */; };
 		E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */; };
 		E8C7B2392A911DC3002AB826 /* home2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7B2382A911DC3002AB826 /* home2CollectionViewCell.swift */; };
+		E8D22E032AC8309300B03C4C /* canvasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D22E022AC8309300B03C4C /* canvasCollectionViewCell.swift */; };
 		E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */; };
 		E8D9139A2A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8D913992A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 */; };
 		E8D9139C2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E8D9139B2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 */; };
@@ -49,6 +50,7 @@
 		E8BAEBE42A84020E00A79B53 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E8BAEBE62A84038A00A79B53 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8C7B2382A911DC3002AB826 /* home2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = home2CollectionViewCell.swift; sourceTree = "<group>"; };
+		E8D22E022AC8309300B03C4C /* canvasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = canvasCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsTableViewCell.swift; sourceTree = "<group>"; };
 		E8D913992A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mixkit-waterfall-in-forest-2213-medium.mp4"; sourceTree = "<group>"; };
 		E8D9139B2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				E8DCEB872AC7652A0012AAE0 /* CanvasView.swift */,
+				E8D22E022AC8309300B03C4C /* canvasCollectionViewCell.swift */,
 			);
 			path = canvas;
 			sourceTree = "<group>";
@@ -142,11 +145,10 @@
 		E8C7B2332A90FBFA002AB826 /* tabbarItems */ = {
 			isa = PBXGroup;
 			children = (
-				E8DCEB8C2AC76FD60012AAE0 /* fontsView */,
-				E8DCEB8B2AC76FC90012AAE0 /* filterview */,
 				E8DCEB862AC764120012AAE0 /* aiEffects */,
 				E8C768542A92676600B4631D /* canvas */,
-				E8DCEB852AC764080012AAE0 /* filter */,
+				E8DCEB8B2AC76FC90012AAE0 /* filterview */,
+				E8DCEB8C2AC76FD60012AAE0 /* fontsView */,
 			);
 			path = tabbarItems;
 			sourceTree = "<group>";
@@ -167,13 +169,6 @@
 				E8D8C13A2A86DC86008B60FD /* settingsTableViewCell.swift */,
 			);
 			path = settings;
-			sourceTree = "<group>";
-		};
-		E8DCEB852AC764080012AAE0 /* filter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = filter;
 			sourceTree = "<group>";
 		};
 		E8DCEB862AC764120012AAE0 /* aiEffects */ = {
@@ -384,6 +379,7 @@
 				E8DCEB8A2AC766280012AAE0 /* AIEffectsView.swift in Sources */,
 				E8BAEBE72A84038A00A79B53 /* HomeCollectionViewCell.swift in Sources */,
 				E8DFD3CD2A855F5B000B3C22 /* SettingsVC.swift in Sources */,
+				E8D22E032AC8309300B03C4C /* canvasCollectionViewCell.swift in Sources */,
 				E8DCEB902AC770370012AAE0 /* FontsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

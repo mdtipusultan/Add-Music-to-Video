@@ -21,8 +21,6 @@ class editPageVc: UIViewController {
     var stopButton: UIButton!
     var avPlayer: AVPlayer?
     var isPlaying = false
-    var isCropViewVisible = false
-    
     
     @IBOutlet weak var aiEffectsContainerView: UIView!
     @IBOutlet weak var canvasContainerView: UIView!
@@ -118,53 +116,53 @@ class editPageVc: UIViewController {
     }
     
     // Example usage when a user taps a tab bar item
-        func showEditingOptionForTabBarItem(tabBarItemIndex: Int) {
-            // Hide all container views
-            aiEffectsContainerView.isHidden = true
-            canvasContainerView.isHidden = true
+    func showEditingOptionForTabBarItem(tabBarItemIndex: Int) {
+        // Hide all container views
+        aiEffectsContainerView.isHidden = true
+        canvasContainerView.isHidden = true
         
-            filtersContainerView.isHidden = true
-            fontsContainerView.isHidden = true
-
-            // Show the selected container view
-            switch tabBarItemIndex {
-            case 0:
-                showContainerView(containerView: aiEffectsContainerView)
-            case 1:
-                showContainerView(containerView: canvasContainerView)
-            case 2:
-                if let selectMusicVc = storyboard?.instantiateViewController(withIdentifier: "SelectMusicViewController") as? selectMusicVC {
-                    selectMusicVc.selectedVideoURL = selectedVideoURL // Pass the selected video URL
-                    // Check if a music is already selected and pass it if available
-                    if let selectedMusicURL = audioPlayer?.url {
-                        selectMusicVc.selectedMusicURL = selectedMusicURL
-                    }
-                    navigationController?.pushViewController(selectMusicVc, animated: false)
+        filtersContainerView.isHidden = true
+        fontsContainerView.isHidden = true
+        
+        // Show the selected container view
+        switch tabBarItemIndex {
+        case 0:
+            showContainerView(containerView: aiEffectsContainerView)
+        case 1:
+            showContainerView(containerView: canvasContainerView)
+        case 2:
+            if let selectMusicVc = storyboard?.instantiateViewController(withIdentifier: "SelectMusicViewController") as? selectMusicVC {
+                selectMusicVc.selectedVideoURL = selectedVideoURL // Pass the selected video URL
+                // Check if a music is already selected and pass it if available
+                if let selectedMusicURL = audioPlayer?.url {
+                    selectMusicVc.selectedMusicURL = selectedMusicURL
                 }
-            case 3:
-                showContainerView(containerView: filtersContainerView)
-            case 4:
-                showContainerView(containerView: fontsContainerView)
-            default:
-                break
+                navigationController?.pushViewController(selectMusicVc, animated: false)
             }
+        case 3:
+            showContainerView(containerView: filtersContainerView)
+        case 4:
+            showContainerView(containerView: fontsContainerView)
+        default:
+            break
         }
-
-        // Example usage when a user taps a cancel button in each editing option view
-        func hideEditingOptionForTabBarItem(tabBarItemIndex: Int) {
-            switch tabBarItemIndex {
-            case 0:
-                hideContainerView(containerView: aiEffectsContainerView)
-            case 1:
-                hideContainerView(containerView: canvasContainerView)
-            case 3:
-                hideContainerView(containerView: filtersContainerView)
-            case 4:
-                hideContainerView(containerView: fontsContainerView)
-            default:
-                break
-            }
+    }
+    
+    // Example usage when a user taps a cancel button in each editing option view
+    func hideEditingOptionForTabBarItem(tabBarItemIndex: Int) {
+        switch tabBarItemIndex {
+        case 0:
+            hideContainerView(containerView: aiEffectsContainerView)
+        case 1:
+            hideContainerView(containerView: canvasContainerView)
+        case 3:
+            hideContainerView(containerView: filtersContainerView)
+        case 4:
+            hideContainerView(containerView: fontsContainerView)
+        default:
+            break
         }
+    }
     
     // Selector for AVPlayerItemDidPlayToEndTime notification
     @objc func playerDidFinishPlaying(_ notification: Notification) {
@@ -253,11 +251,11 @@ class editPageVc: UIViewController {
                 hideEditingOptionForTabBarItem(tabBarItemIndex: selectedIndex)
             }
             
-          
-        }
-       
             
-           
+        }
+        
+        
+        
         
     }
     

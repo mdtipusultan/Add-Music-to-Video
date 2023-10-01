@@ -2,8 +2,14 @@ import UIKit
 import AVFoundation
 import Photos
 
-class editPageVc: UIViewController {
-    
+class editPageVc: UIViewController, CanvasVCDelegate  {
+    // Implement the delegate method to handle the selected crop option
+    func didSelectCropOption(_ cropOption: CropOption) {
+        print("Selected crop option:", cropOption)
+        applyCropOptionToVideo(cropOption)
+    }
+
+  
     var selectedMusicURL: URL?
     var selectedVideoURL: URL?
     
@@ -23,17 +29,31 @@ class editPageVc: UIViewController {
     var isPlaying = false
     
     @IBOutlet weak var aiEffectsContainerView: UIView!
-    @IBOutlet weak var canvasContainerView: UIView!
     @IBOutlet weak var filtersContainerView: UIView!
     @IBOutlet weak var fontsContainerView: UIView!
     
+    @IBOutlet weak var canvasView: UIView!
+    
+    
     var aiEffectsView: AIEffectsView?
-    var canvasView: CanvasView?
     var filtersView: FiltersView?
     var fontsView: FontsView?
     
+    var canvasVC: canvasVC?
+    var selectedCropOption: CropOption?
+
+    
     override func viewDidLoad(){
         super.viewDidLoad()
+      
+        // Create the canvasVC instance
+           //canvasVC = storyboard?.instantiateViewController(withIdentifier: "CanvasVC") as? canvasVC
+
+           // Set the delegate for canvasVC
+           //canvasVC?.delegate = self
+
+           // Add the debug print statement to check if the delegate is set
+         //  print("Delegate set to:", canvasVC?.delegate as Any)
         
         tabBar.delegate = self
         
@@ -48,26 +68,40 @@ class editPageVc: UIViewController {
         stopoButton()
         // Add observer for AVPlayerItemDidPlayToEndTime notification
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CanvasVC" {
+            if let canvasVC = segue.destination as? canvasVC {
+                // Set the delegate of canvasVC to self
+                canvasVC.delegate = self
+                // Add the debug print statement to check if the delegate is set
+                print("Delegate set to:", canvasVC.delegate as Any)
+                // Pass any other necessary data to canvasVC
+                // Example: canvasVC.someProperty = someValue
+            }
+        }
+    }
     func CoontainerViewsSetUp(){
         aiEffectsView = AIEffectsView()
-        canvasView = CanvasView()
+        //canvasView = CanvasView()
         
         filtersView = FiltersView()
         fontsView = FontsView()
         
         // Add custom views as subviews to container views
         aiEffectsContainerView.addSubview(aiEffectsView!)
-        canvasContainerView.addSubview(canvasView!)
+        //canvasContainerView.addSubview(canvasView!)
         filtersContainerView.addSubview(filtersView!)
         fontsContainerView.addSubview(fontsView!)
         
         // Hide custom views initially
         aiEffectsContainerView.isHidden = true
-        canvasContainerView.isHidden = true
+        canvasView.isHidden = true
         filtersContainerView.isHidden = true
         fontsContainerView.isHidden = true
+        
+        
     }
     
     func SelectedAudioVideoPlay(){
@@ -95,6 +129,44 @@ class editPageVc: UIViewController {
             }
         }
     }
+    
+    /*
+     func SelectedAudioVideoPlay() {
+     if let selectedVideoURL = selectedVideoURL {
+     // Check if a cropped video player is available
+     if let videoPlayer = videoPlayer {
+     let playerLayer = AVPlayerLayer(player: videoPlayer)
+     playerLayer.videoGravity = .resizeAspect // Set videoGravity to resizeAspect
+     videooView.layer.addSublayer(playerLayer)
+     videoPlayer.play()
+     // Update playerLayer's frame to center the video within the videooView
+     playerLayer.frame = videooView.bounds
+     playerLayer.contentsGravity = .center
+     } else {
+     videoPlayer = AVPlayer(url: selectedVideoURL)
+     let playerLayer = AVPlayerLayer(player: videoPlayer)
+     playerLayer.videoGravity = .resizeAspect // Set videoGravity to resizeAspect
+     videooView.layer.addSublayer(playerLayer)
+     videoPlayer?.play()
+     // Update playerLayer's frame to center the video within the videooView
+     playerLayer.frame = videooView.bounds
+     playerLayer.contentsGravity = .center
+     }
+     }
+     // Play the selected music
+     if let selectedMusicURL = selectedMusicURL {
+     do {
+     audioPlayer = try AVAudioPlayer(contentsOf: selectedMusicURL)
+     audioPlayer?.prepareToPlay()
+     audioPlayer?.play()
+     } catch {
+     print("Error playing audio: \(error)")
+     }
+     }
+     
+     }
+     */
+    
     //MARK: CONTAINERVIEWS SHOOW-HIDE
     // Function to show a specific container view with animation
     func showContainerView(containerView: UIView) {
@@ -119,7 +191,7 @@ class editPageVc: UIViewController {
     func showEditingOptionForTabBarItem(tabBarItemIndex: Int) {
         // Hide all container views
         aiEffectsContainerView.isHidden = true
-        canvasContainerView.isHidden = true
+        self.canvasView.isHidden = true
         
         filtersContainerView.isHidden = true
         fontsContainerView.isHidden = true
@@ -129,7 +201,13 @@ class editPageVc: UIViewController {
         case 0:
             showContainerView(containerView: aiEffectsContainerView)
         case 1:
-            showContainerView(containerView: canvasContainerView)
+           
+            showContainerView(containerView: canvasView)
+            //print("Delegate set to:", canvasVC?.delegate as Any)
+            // Set the delegate after showing the canvasView
+           
+            //performSegue(withIdentifier: "CanvasVC", sender: self)
+         
         case 2:
             if let selectMusicVc = storyboard?.instantiateViewController(withIdentifier: "SelectMusicViewController") as? selectMusicVC {
                 selectMusicVc.selectedVideoURL = selectedVideoURL // Pass the selected video URL
@@ -154,7 +232,7 @@ class editPageVc: UIViewController {
         case 0:
             hideContainerView(containerView: aiEffectsContainerView)
         case 1:
-            hideContainerView(containerView: canvasContainerView)
+            hideContainerView(containerView: self.canvasView)
         case 3:
             hideContainerView(containerView: filtersContainerView)
         case 4:
@@ -250,12 +328,7 @@ class editPageVc: UIViewController {
                 // Call the function to hide the corresponding container view
                 hideEditingOptionForTabBarItem(tabBarItemIndex: selectedIndex)
             }
-            
-            
         }
-        
-        
-        
         
     }
     
@@ -322,6 +395,30 @@ class editPageVc: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
+    
+    //MARK: applyCropOption
+
+    private func applyCropOptionToVideo(_ cropOption: CropOption) {
+        selectedCropOption = cropOption
+
+        // Calculate the video frame based on the selected crop option's aspect ratio
+        let videoAspectRatio = cropOption.image.size.width / cropOption.image.size.height
+        let videoWidth = videooView.bounds.width
+        let videoHeight = videoWidth / videoAspectRatio
+
+        print("Video width:", videoWidth, "Video height:", videoHeight)
+
+        // Calculate the video player's frame
+        let playerFrame = CGRect(x: 0, y: 0, width: videoWidth, height: videoHeight)
+
+        // Update the video player layer's frame
+        if let playerLayer = videooView.layer.sublayers?.first(where: { $0 is AVPlayerLayer }) as? AVPlayerLayer {
+            playerLayer.frame = playerFrame
+        }
+    }
+
+
+
 }
 
 extension editPageVc: UITabBarDelegate {

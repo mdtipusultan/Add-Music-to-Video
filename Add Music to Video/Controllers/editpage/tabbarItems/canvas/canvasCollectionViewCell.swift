@@ -9,4 +9,9 @@ import UIKit
 
 class canvasCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var cropImages: UIImageView!
+    
+    @IBOutlet weak var cropImagesSize: UILabel!
+    
+    
 }

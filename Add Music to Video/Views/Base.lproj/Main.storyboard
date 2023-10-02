@@ -284,7 +284,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBG-Ct-B4n" userLabel="VideoView">
                                 <rect key="frame" x="0.0" y="48.000000000000028" width="414" height="420.66666666666674"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWw-Mb-lfO" userLabel="MusicView">
                                 <rect key="frame" x="0.0" y="518.66666666666663" width="414" height="105"/>

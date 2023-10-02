@@ -68,6 +68,7 @@ class editPageVc: UIViewController, CanvasVCDelegate  {
         stopoButton()
         // Add observer for AVPlayerItemDidPlayToEndTime notification
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        editLeftButtoon.title = "New"
 
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -305,30 +306,34 @@ class editPageVc: UIViewController, CanvasVCDelegate  {
     }
     //MARK: NAVBAR BUTTONS
     @IBAction func newButtonTapped(_ sender: UIBarButtonItem) {
-        if let tabBar = self.tabBar,
-           let selectedIndex = tabBar.selectedItem?.tag {
+        
+        if editLeftButtoon.title == "New" {
+            // If it's not the second tab, show a confirmation alert
+            let alertController = UIAlertController(title: "Confirm", message: "Are you sure you want to go back to the home screen?", preferredStyle: .alert)
             
-            if editLeftButtoon.title == "New" {
-                // If it's not the second tab, show a confirmation alert
-                let alertController = UIAlertController(title: "Confirm", message: "Are you sure you want to go back to the home screen?", preferredStyle: .alert)
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
-                    // Navigate back to the root view controller (HomeVC)
-                    self.navigationController?.popToRootViewController(animated: true)
-                }
-                
-                alertController.addAction(cancelAction)
-                alertController.addAction(confirmAction)
-                
-                present(alertController, animated: true, completion: nil)
-                
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+                // Navigate back to the root view controller (HomeVC)
+                self.navigationController?.popToRootViewController(animated: true)
             }
-            else{
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(confirmAction)
+            
+            present(alertController, animated: true, completion: nil)
+            
+        }
+        else{
+            if let tabBar = self.tabBar,
+               let selectedIndex = tabBar.selectedItem?.tag {
+                
                 // Call the function to hide the corresponding container view
                 hideEditingOptionForTabBarItem(tabBarItemIndex: selectedIndex)
+               
             }
+           
         }
+       
         
     }
     
@@ -401,19 +406,21 @@ class editPageVc: UIViewController, CanvasVCDelegate  {
     private func applyCropOptionToVideo(_ cropOption: CropOption) {
         selectedCropOption = cropOption
 
-        // Calculate the video frame based on the selected crop option's aspect ratio
+        // Calculate the video's aspect ratio
         let videoAspectRatio = cropOption.image.size.width / cropOption.image.size.height
-        let videoWidth = videooView.bounds.width
-        let videoHeight = videoWidth / videoAspectRatio
+
+        // Calculate the video's width based on the height of the videooView
+        let videoHeight = videooView.frame.height
+        let videoWidth = videoHeight * videoAspectRatio
 
         print("Video width:", videoWidth, "Video height:", videoHeight)
 
-        // Calculate the video player's frame
-        let playerFrame = CGRect(x: 0, y: 0, width: videoWidth, height: videoHeight)
-
-        // Update the video player layer's frame
-        if let playerLayer = videooView.layer.sublayers?.first(where: { $0 is AVPlayerLayer }) as? AVPlayerLayer {
-            playerLayer.frame = playerFrame
+        // Find the AVPlayerLayer
+        if let playerLayer = videooView.layer.sublayers?.compactMap({ $0 as? AVPlayerLayer }).first {
+            // Center the video within the videooView
+            let xOffset = (videooView.frame.width - videoWidth) / 2
+            let yOffset = (videooView.frame.height - videoHeight) / 2
+            playerLayer.frame = CGRect(x: xOffset, y: yOffset, width: videoWidth, height: videoHeight)
         }
     }
 

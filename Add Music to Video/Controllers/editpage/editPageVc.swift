@@ -35,9 +35,9 @@ class editPageVc: UIViewController, CanvasVCDelegate  {
     @IBOutlet weak var canvasView: UIView!
     
     
-    var aiEffectsView: AIEffectsView?
-    var filtersView: FiltersView?
-    var fontsView: FontsView?
+    //var aiEffectsView: AIEffectsView?
+    //var filtersView: FiltersView?
+    //var fontsView: FontsView?
     
     var canvasVC: canvasVC?
     var selectedCropOption: CropOption?
@@ -45,15 +45,6 @@ class editPageVc: UIViewController, CanvasVCDelegate  {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-      
-        // Create the canvasVC instance
-           //canvasVC = storyboard?.instantiateViewController(withIdentifier: "CanvasVC") as? canvasVC
-
-           // Set the delegate for canvasVC
-           //canvasVC?.delegate = self
-
-           // Add the debug print statement to check if the delegate is set
-         //  print("Delegate set to:", canvasVC?.delegate as Any)
         
         tabBar.delegate = self
         
@@ -84,17 +75,17 @@ class editPageVc: UIViewController, CanvasVCDelegate  {
         }
     }
     func CoontainerViewsSetUp(){
-        aiEffectsView = AIEffectsView()
+        //aiEffectsView = AIEffectsView()
         //canvasView = CanvasView()
         
-        filtersView = FiltersView()
-        fontsView = FontsView()
+        //filtersView = FiltersView()
+        //fontsView = FontsView()
         
         // Add custom views as subviews to container views
-        aiEffectsContainerView.addSubview(aiEffectsView!)
+        //aiEffectsContainerView.addSubview(aiEffectsView!)
         //canvasContainerView.addSubview(canvasView!)
-        filtersContainerView.addSubview(filtersView!)
-        fontsContainerView.addSubview(fontsView!)
+        //filtersContainerView.addSubview(filtersView!)
+        //fontsContainerView.addSubview(fontsView!)
         
         // Hide custom views initially
         aiEffectsContainerView.isHidden = true
@@ -131,44 +122,8 @@ class editPageVc: UIViewController, CanvasVCDelegate  {
         }
     }
     
-    /*
-     func SelectedAudioVideoPlay() {
-     if let selectedVideoURL = selectedVideoURL {
-     // Check if a cropped video player is available
-     if let videoPlayer = videoPlayer {
-     let playerLayer = AVPlayerLayer(player: videoPlayer)
-     playerLayer.videoGravity = .resizeAspect // Set videoGravity to resizeAspect
-     videooView.layer.addSublayer(playerLayer)
-     videoPlayer.play()
-     // Update playerLayer's frame to center the video within the videooView
-     playerLayer.frame = videooView.bounds
-     playerLayer.contentsGravity = .center
-     } else {
-     videoPlayer = AVPlayer(url: selectedVideoURL)
-     let playerLayer = AVPlayerLayer(player: videoPlayer)
-     playerLayer.videoGravity = .resizeAspect // Set videoGravity to resizeAspect
-     videooView.layer.addSublayer(playerLayer)
-     videoPlayer?.play()
-     // Update playerLayer's frame to center the video within the videooView
-     playerLayer.frame = videooView.bounds
-     playerLayer.contentsGravity = .center
-     }
-     }
-     // Play the selected music
-     if let selectedMusicURL = selectedMusicURL {
-     do {
-     audioPlayer = try AVAudioPlayer(contentsOf: selectedMusicURL)
-     audioPlayer?.prepareToPlay()
-     audioPlayer?.play()
-     } catch {
-     print("Error playing audio: \(error)")
-     }
-     }
-     
-     }
-     */
     
-    //MARK: CONTAINERVIEWS SHOOW-HIDE
+    //MARK: CONTAINERVIEWS SHOW-HIDE
     // Function to show a specific container view with animation
     func showContainerView(containerView: UIView) {
         UIView.animate(withDuration: 0.3) {

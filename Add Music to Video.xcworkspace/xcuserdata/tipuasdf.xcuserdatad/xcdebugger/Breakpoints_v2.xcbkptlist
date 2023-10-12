@@ -7,143 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D2A36897-B23B-44F2-9686-6C796EF811DE"
+            uuid = "FB3C4F38-221E-453C-BCC4-D8C7A5C69124"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Add Music to Video/Controllers/editpage/editPageVc.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "thumbnailTapped(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D2A36897-B23B-44F2-9686-6C796EF811DE - dfed8fdd020c53c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Add_Music_to_Video.editPageVc.thumbnailTapped(__C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "Add Music to Video"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tipuasdf/Desktop/practices/AddMusictoVideo/Add%20Music%20to%20Video/Controllers/editpage/editPageVc.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "468">
-               </Location>
-               <Location
-                  uuid = "D2A36897-B23B-44F2-9686-6C796EF811DE - dfed8fdd020c53c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Add_Music_to_Video.editPageVc.thumbnailTapped(__C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "Add Music to Video"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tipuasdf/Desktop/practices/AddMusictoVideo/Add%20Music%20to%20Video/Controllers/editpage/editPageVc.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "122">
-               </Location>
-               <Location
-                  uuid = "D2A36897-B23B-44F2-9686-6C796EF811DE - dfed8fdd020c53c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Add_Music_to_Video.editPageVc.thumbnailTapped(__C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "Add Music to Video"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tipuasdf/Desktop/practices/AddMusictoVideo/Add%20Music%20to%20Video/Controllers/editpage/editPageVc.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "369">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C813B24C-1D49-4F18-9C9E-A9EB33B71A81"
+            uuid = "7CEDC86A-BF3F-404C-8B72-B6EBFE7B9007"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Add Music to Video/Controllers/editpage/editPageVc.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "thumbnailTapped(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C813B24C-1D49-4F18-9C9E-A9EB33B71A81 - dfed8fdd020c5492"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Add_Music_to_Video.editPageVc.thumbnailTapped(__C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "Add Music to Video"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tipuasdf/Desktop/practices/AddMusictoVideo/Add%20Music%20to%20Video/Controllers/editpage/editPageVc.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "984">
-               </Location>
-               <Location
-                  uuid = "C813B24C-1D49-4F18-9C9E-A9EB33B71A81 - dfed8fdd020c5492"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Add_Music_to_Video.editPageVc.thumbnailTapped(__C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "Add Music to Video"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tipuasdf/Desktop/practices/AddMusictoVideo/Add%20Music%20to%20Video/Controllers/editpage/editPageVc.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "651">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B85E54B9-ADE7-4329-AC7F-36CBE86B242A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Add Music to Video/Controllers/editpage/editPageVc.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "78B37BFD-D4C9-4475-8052-F34EABA1DC09"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Add Music to Video/Controllers/editpage/editPageVc.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

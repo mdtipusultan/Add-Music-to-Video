@@ -8,8 +8,6 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
         print("Selected crop option:", cropOption)
         applyCropOptionToVideo(cropOption)
     }
-    
-    
     var selectedMusicURL: URL?
     var selectedVideoURL: URL?
     
@@ -33,10 +31,10 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
     
     @IBOutlet weak var canvasView: UIView!
     
-    // Add a UILabel to your view controller to display the current time
-    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    var timeObserver: Any?
     
-    let thumbnailInterval: Double = 4.0 // Display a thumbnail every 5 seconds
+    let thumbnailInterval: Double = 4.0
     var thumbnails: [UIImage] = []
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -69,12 +67,32 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
             imageView.addGestureRecognizer(tapGesture)
         }
         
-        // Assuming you have a URL for your video, call setupThumbnailScrollView here
           if let videoURL = selectedVideoURL {
               setupThumbnailScrollView(for: videoURL)
           }
-        
+        timeObserverFunc()
     }
+    
+    func timeObserverFunc(){
+        // Add an observer to update the time label
+        timeObserver = videoPlayer?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: .main) { [weak self] time in
+                  guard let self = self else { return }
+                  
+                  let currentTime = CMTimeGetSeconds(time)
+            let duration = CMTimeGetSeconds(self.videoPlayer?.currentItem?.duration ?? .zero)
+                  
+                  let currentTimeText = self.timeString(from: currentTime)
+                  let durationText = self.timeString(from: duration)
+                  
+                  self.timeLabel.text = "\(currentTimeText)/\(durationText)"
+              }
+    }
+      
+      func timeString(from seconds: Double) -> String {
+          let minutes = Int(seconds) / 60
+          let remainingSeconds = Int(seconds) % 60
+          return String(format: "%02d:%02d", minutes, remainingSeconds)
+      }
     @objc func thumbnailTapped(_ gesture: UITapGestureRecognizer) {
         if let imageView = gesture.view as? UIImageView, let player = player {
             let selectedTime = CMTime(seconds: Double(imageView.tag) * thumbnailInterval, preferredTimescale: 1)
@@ -108,12 +126,6 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
             videoPlayer = AVPlayer(url: selectedVideoURL)
             let playerLayer = AVPlayerLayer(player: videoPlayer)
             
-            // Add a time observer to update the current time label
-            videoPlayer?.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 1), queue: DispatchQueue.main) { [weak self] time in
-                
-                self?.updateCurrentTimeLabel(time)
-            }
-            
             playerLayer.videoGravity = .resizeAspect // Set videoGravity to resizeAspect
             videooView.layer.addSublayer(playerLayer)
             videoPlayer?.play()
@@ -133,15 +145,6 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
                 print("Error playing audio: \(error)")
             }
         }
-    }
-    // Function to update the current time label
-    func updateCurrentTimeLabel(_ time: CMTime) {
-        let currentTimeSeconds = CMTimeGetSeconds(time)
-        let hours = Int(currentTimeSeconds / 3600)
-        let minutes = Int((currentTimeSeconds.truncatingRemainder(dividingBy: 3600)) / 60)
-        let seconds = Int(currentTimeSeconds.truncatingRemainder(dividingBy: 60))
-        
-        currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
     }
 
     func setupThumbnailScrollView(for videoURL: URL) {
@@ -370,6 +373,12 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
     }
     deinit {
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        
+        // Don't forget to remove the time observer when you're done
+        if let timeObserver = timeObserver {
+            videoPlayer?.removeTimeObserver(timeObserver)
+            self.timeObserver = nil
+        }
     }
     
     //MARK: applyCropOption

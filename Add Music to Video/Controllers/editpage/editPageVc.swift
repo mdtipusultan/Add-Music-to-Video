@@ -2,7 +2,7 @@ import UIKit
 import AVFoundation
 import Photos
 
-class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate  {
+class editPageVc: UIViewController, CanvasVCDelegate {
     // Implement the delegate method to handle the selected crop option
     func didSelectCropOption(_ cropOption: CropOption) {
         print("Selected crop option:", cropOption)
@@ -16,7 +16,6 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
     var videoPlayer: AVPlayer?
     
     @IBOutlet weak var videooView: UIView!
-    @IBOutlet weak var musicView: UIView!
     
     @IBOutlet weak var tabBar: UITabBar!
     
@@ -34,19 +33,20 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
     @IBOutlet weak var timeLabel: UILabel!
     var timeObserver: Any?
     
-    let thumbnailInterval: Double = 4.0
-    var thumbnails: [UIImage] = []
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var thumbnelView: UIImageView!
     
     var canvasVC: canvasVC?
     var selectedCropOption: CropOption?
-        
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var playPauseButton: UIButton!
+    var hideButtonTimer: Timer?
+
+
+    
     override func viewDidLoad(){
         super.viewDidLoad()
-        
+
         tabBar.delegate = self
         
         // Hide the back button
@@ -60,48 +60,76 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
         
         editLeftButtoon.title = "New"
         
-        // Add a tap gesture recognizer to the image views
-        for imageView in scrollView.subviews {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(thumbnailTapped(_:)))
-            tapGesture.delegate = self
-            imageView.addGestureRecognizer(tapGesture)
-        }
-        
-          if let videoURL = selectedVideoURL {
-              setupThumbnailScrollView(for: videoURL)
-          }
         timeObserverFunc()
+        
+        // Add a tap gesture recognizer to the videooView
+          let tapGesture = UITapGestureRecognizer(target: self, action: #selector(videoViewTapped))
+          videooView.addGestureRecognizer(tapGesture)
+          videooView.isUserInteractionEnabled = true // Enable user interaction
+        videooView.bringSubviewToFront(playPauseButton)
+        
     }
     
+    //MARK: VIDEO PAUSE OR PLAY
+    /*
+    @objc func playPauseButtonTapped() {
+        if videoPlayer?.rate == 0.0 {
+            videoPlayer?.play()
+            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            
+          
+            
+        } else {
+            videoPlayer?.pause()
+            playPauseButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+      
+        }
+    }
+*/
+
+    
+    @objc func videoViewTapped() {
+        if videoPlayer?.rate == 0.0 {
+            videoPlayer?.play()
+            playPauseButton.isHidden = false // Hide the button when video starts playing
+            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            // Delay showing the button after a couple of seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.playPauseButton.isHidden = true
+            }
+        } else {
+            videoPlayer?.pause()
+            playPauseButton.isHidden = false // Show the button when video is paused
+            playPauseButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+        }
+    }
+
+
+
+
+
+    //MARK: ADDING VIDEO TIME
     func timeObserverFunc(){
         // Add an observer to update the time label
         timeObserver = videoPlayer?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: .main) { [weak self] time in
-                  guard let self = self else { return }
-                  
-                  let currentTime = CMTimeGetSeconds(time)
-            let duration = CMTimeGetSeconds(self.videoPlayer?.currentItem?.duration ?? .zero)
-                  
-                  let currentTimeText = self.timeString(from: currentTime)
-                  let durationText = self.timeString(from: duration)
-                  
-                  self.timeLabel.text = "\(currentTimeText)/\(durationText)"
-              }
-    }
-      
-      func timeString(from seconds: Double) -> String {
-          let minutes = Int(seconds) / 60
-          let remainingSeconds = Int(seconds) % 60
-          return String(format: "%02d:%02d", minutes, remainingSeconds)
-      }
-    @objc func thumbnailTapped(_ gesture: UITapGestureRecognizer) {
-        if let imageView = gesture.view as? UIImageView, let player = player {
-            let selectedTime = CMTime(seconds: Double(imageView.tag) * thumbnailInterval, preferredTimescale: 1)
-            player.seek(to: selectedTime)
+            guard let self = self else { return }
             
-            // Update the selected thumbnail frame in your thumbnelView
-            thumbnelView.image = thumbnails[imageView.tag]
+            let currentTime = CMTimeGetSeconds(time)
+            let duration = CMTimeGetSeconds(self.videoPlayer?.currentItem?.duration ?? .zero)
+            
+            let currentTimeText = self.timeString(from: currentTime)
+            let durationText = self.timeString(from: duration)
+            
+            self.timeLabel.text = "\(currentTimeText)/\(durationText)"
         }
     }
+    
+    func timeString(from seconds: Double) -> String {
+        let minutes = Int(seconds) / 60
+        let remainingSeconds = Int(seconds) % 60
+        return String(format: "%02d:%02d", minutes, remainingSeconds)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CanvasVC" {
             if let canvasVC = segue.destination as? canvasVC {
@@ -145,31 +173,6 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
                 print("Error playing audio: \(error)")
             }
         }
-    }
-
-    func setupThumbnailScrollView(for videoURL: URL) {
-        thumbnails = generateThumbnails(for: videoURL, at: thumbnailInterval)
-
-        let thumbnailHeight: CGFloat = thumbnelView.frame.size.height
-        let thumbnailAspectRatio: CGFloat = thumbnails[0].size.width / thumbnails[0].size.height
-
-        // Calculate the thumbnail width to maintain the aspect ratio
-        let thumbnailWidth: CGFloat = thumbnailHeight * thumbnailAspectRatio
-
-        var xPosition: CGFloat = 0.0
-
-        for (index, thumbnail) in thumbnails.enumerated() {
-            let imageView = UIImageView(image: thumbnail)
-            imageView.frame = CGRect(x: xPosition, y: 0, width: thumbnailWidth, height: thumbnailHeight)
-            imageView.contentMode = .scaleAspectFit  // Set content mode to maintain aspect ratio
-            imageView.isUserInteractionEnabled = true
-            imageView.tag = index
-            scrollView.addSubview(imageView)
-
-            xPosition += thumbnailWidth
-        }
-
-        scrollView.contentSize = CGSize(width: xPosition, height: thumbnailHeight)
     }
     
     //MARK: CONTAINERVIEWS SHOW-HIDE
@@ -246,6 +249,8 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
     @objc func playerDidFinishPlaying(_ notification: Notification) {
         // Pause the audio player here
         audioPlayer?.pause()
+        
+        playPauseButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
     }
     
     // Function to pause the audio player
@@ -260,13 +265,13 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
     func generateThumbnails(for videoURL: URL, at intervals: Double) -> [UIImage] {
         let asset = AVAsset(url: videoURL)
         var thumbnails: [UIImage] = []
-
+        
         let imageGenerator = AVAssetImageGenerator(asset: asset)
         imageGenerator.appliesPreferredTrackTransform = true
-
+        
         let duration = CMTimeGetSeconds(asset.duration)
         let interval = CMTime(seconds: intervals, preferredTimescale: 1)
-
+        
         for time in stride(from: .zero, to: duration, by: intervals) {
             do {
                 let cgImage = try imageGenerator.copyCGImage(at: CMTime(seconds: time, preferredTimescale: 1), actualTime: nil)
@@ -276,10 +281,10 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
                 print("Error generating thumbnail: \(error)")
             }
         }
-
+        
         return thumbnails
     }
-
+    
     //MARK: NAVBAR BUTTONS
     @IBAction func newButtonTapped(_ sender: UIBarButtonItem) {
         
@@ -302,12 +307,9 @@ class editPageVc: UIViewController, CanvasVCDelegate,UIGestureRecognizerDelegate
         else{
             if let tabBar = self.tabBar,
                let selectedIndex = tabBar.selectedItem?.tag {
-                
                 // Call the function to hide the corresponding container view
                 hideEditingOptionForTabBarItem(tabBarItemIndex: selectedIndex)
-                
             }
-            
         }
     }
     //MARK: SAVE-BUTTON

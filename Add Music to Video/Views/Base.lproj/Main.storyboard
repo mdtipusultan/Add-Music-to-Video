@@ -15,7 +15,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Main View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -933,6 +933,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAb-nc-Dri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-387" y="877"/>
+        </scene>
+        <!--Video StreamingVC-->
+        <scene sceneID="N2b-gj-kiw">
+            <objects>
+                <viewController storyboardIdentifier="VideoStreamingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rrk-uu-6ly" customClass="VideoStreamingVC" customModule="Add_Music_to_Video" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FmQ-c9-XFm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hJb-41-msV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jV2-wE-bMG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103" y="-807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s3n-kT-GQo">

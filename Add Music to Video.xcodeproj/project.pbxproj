@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		261050A31C953C1ACDD1DEC8 /* Pods_Add_Music_to_Video.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A41502BA43828D1EA86611 /* Pods_Add_Music_to_Video.framework */; };
+		CE846CC62DA8018100BFF572 /* VideoStreamingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE846CC52DA8018100BFF572 /* VideoStreamingVC.xib */; };
+		CE846CC72DA8018100BFF572 /* VideoStreamingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE846CC42DA8018100BFF572 /* VideoStreamingVC.swift */; };
 		E82AFC9F2AD5A7A4001F6D34 /* aiEffectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AFC9E2AD5A7A4001F6D34 /* aiEffectsVC.swift */; };
 		E82AFCA12AD5A833001F6D34 /* filterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AFCA02AD5A833001F6D34 /* filterVC.swift */; };
 		E82AFCA32AD5A84A001F6D34 /* fontsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AFCA22AD5A84A001F6D34 /* fontsVC.swift */; };
@@ -39,6 +41,8 @@
 		049E687EB0CB88CA333F2EA2 /* Pods-Add Music to Video.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Add Music to Video.debug.xcconfig"; path = "Target Support Files/Pods-Add Music to Video/Pods-Add Music to Video.debug.xcconfig"; sourceTree = "<group>"; };
 		226A8FF89101981FA3CA7EEF /* Pods-Add Music to Video.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Add Music to Video.release.xcconfig"; path = "Target Support Files/Pods-Add Music to Video/Pods-Add Music to Video.release.xcconfig"; sourceTree = "<group>"; };
 		53A41502BA43828D1EA86611 /* Pods_Add_Music_to_Video.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Add_Music_to_Video.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE846CC42DA8018100BFF572 /* VideoStreamingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStreamingVC.swift; sourceTree = "<group>"; };
+		CE846CC52DA8018100BFF572 /* VideoStreamingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoStreamingVC.xib; sourceTree = "<group>"; };
 		E82AFC9E2AD5A7A4001F6D34 /* aiEffectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aiEffectsVC.swift; sourceTree = "<group>"; };
 		E82AFCA02AD5A833001F6D34 /* filterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterVC.swift; sourceTree = "<group>"; };
 		E82AFCA22AD5A84A001F6D34 /* fontsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fontsVC.swift; sourceTree = "<group>"; };
@@ -97,6 +101,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE846CC32DA8012B00BFF572 /* VideoStreaming */ = {
+			isa = PBXGroup;
+			children = (
+				CE846CC42DA8018100BFF572 /* VideoStreamingVC.swift */,
+				CE846CC52DA8018100BFF572 /* VideoStreamingVC.xib */,
+			);
+			path = VideoStreaming;
+			sourceTree = "<group>";
+		};
+		CE846CC82DA8027000BFF572 /* Initials */ = {
+			isa = PBXGroup;
+			children = (
+				E8BAEBD02A83FA9F00A79B53 /* AppDelegate.swift */,
+				E8BAEBD22A83FA9F00A79B53 /* SceneDelegate.swift */,
+			);
+			path = Initials;
+			sourceTree = "<group>";
+		};
 		E8BAEBC42A83FA9F00A79B53 = {
 			isa = PBXGroup;
 			children = (
@@ -118,10 +140,9 @@
 		E8BAEBCF2A83FA9F00A79B53 /* Add Music to Video */ = {
 			isa = PBXGroup;
 			children = (
+				CE846CC82DA8027000BFF572 /* Initials */,
 				E8C810AE2AC439B500443F68 /* Views */,
 				E8DFD3CA2A855F20000B3C22 /* Controllers */,
-				E8BAEBD02A83FA9F00A79B53 /* AppDelegate.swift */,
-				E8BAEBD22A83FA9F00A79B53 /* SceneDelegate.swift */,
 				E8BAEBD92A83FAA200A79B53 /* Assets.xcassets */,
 				E8D9139F2A88EAEF00CC5AF2 /* mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4 */,
 				E8D9139B2A88E1B400CC5AF2 /* mixkit-a-woman-with-her-dog-watching-the-sunset-4814-medium.mp4 */,
@@ -198,6 +219,7 @@
 		E8DFD3CA2A855F20000B3C22 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE846CC32DA8012B00BFF572 /* VideoStreaming */,
 				E8FDA5402A8D575900FDC578 /* editpage */,
 				E8FDA5392A8CC8FE00FDC578 /* select music */,
 				E8FDA5382A8CC8ED00FDC578 /* purchase */,
@@ -309,6 +331,7 @@
 				E8B7D54F2A88286D00D04BF8 /* 172807 (1080p).mp4 in Resources */,
 				E8BAEBDD2A83FAA200A79B53 /* LaunchScreen.storyboard in Resources */,
 				E8D913A02A88EAEF00CC5AF2 /* mixkit-pov-of-a-basket-of-easter-eggs-48595-medium.mp4 in Resources */,
+				CE846CC62DA8018100BFF572 /* VideoStreamingVC.xib in Resources */,
 				E8BAEBDA2A83FAA200A79B53 /* Assets.xcassets in Resources */,
 				E8BAEBD82A83FA9F00A79B53 /* Main.storyboard in Resources */,
 				E8D9139A2A88DBE400CC5AF2 /* mixkit-waterfall-in-forest-2213-medium.mp4 in Resources */,
@@ -373,6 +396,7 @@
 				E8BAEBD12A83FA9F00A79B53 /* AppDelegate.swift in Sources */,
 				E8D8C13B2A86DC86008B60FD /* settingsTableViewCell.swift in Sources */,
 				E82AFCA12AD5A833001F6D34 /* filterVC.swift in Sources */,
+				CE846CC72DA8018100BFF572 /* VideoStreamingVC.swift in Sources */,
 				E8BAEBD32A83FA9F00A79B53 /* SceneDelegate.swift in Sources */,
 				E8FDA53F2A8CE3AF00FDC578 /* DownloadSelectMusicCollectionViewCell.swift in Sources */,
 				E82AFCA32AD5A84A001F6D34 /* fontsVC.swift in Sources */,

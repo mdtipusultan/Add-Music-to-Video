@@ -11,7 +11,7 @@ import GoogleMobileAds
 class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,GADBannerViewDelegate {
     
     @IBOutlet weak var BannerView: GADBannerView!
-    @IBOutlet weak var appReferView: UIView!
+    @IBOutlet weak var appReferView: UIView! // Streaming Videos
     @IBOutlet weak var collectionview: UICollectionView!
     
     let imageArray = ["figure.martial.arts", "slowmo", "video.slash", "music.note.house", "music.quarternote.3", "scissors.badge.ellipsis"]
@@ -31,14 +31,29 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
         DispatchQueue.main.async {
-            self.BannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"  // Replace with your actual ad unit ID
+            self.BannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"  // Replace with actual ad unit ID
             self.BannerView.rootViewController = self
             self.BannerView.delegate = self
             
             let adRequest = GADRequest()
             self.BannerView.load(adRequest)
         }
+        
+        // Streaming Videos
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(appReferViewTapped))
+        appReferView.addGestureRecognizer(tapGesture)
+        appReferView.isUserInteractionEnabled = true
+
     }
+    // Streaming Videos
+    @objc func appReferViewTapped() {
+        // Instantiate the video streaming view controller
+        let videoVC = storyboard?.instantiateViewController(withIdentifier: "VideoStreamingVC") as! VideoStreamingVC
+        
+        // Push to the video streaming view controller
+        navigationController?.pushViewController(videoVC, animated: true)
+    }
+
     
     @IBAction func settingButtonTapped(_ sender: UIBarButtonItem) {
         // Create an instance of SettingsVC
@@ -73,9 +88,9 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             cell.backgroundColor = .lightGray // Set your desired cell color
             // Configure the cell content for the first section
             cell.title1.text = "Add Music to Video"
-    
             
             return cell
+            
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! HomeCollectionViewCell
             cell.layer.cornerRadius = 10
@@ -85,8 +100,6 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             // Configure the cell content for the second section
             // Set the tint color based on the index
             cell.imageView.tintColor = tintColors[indexPath.item]
-            
-            
             
             return cell
         }

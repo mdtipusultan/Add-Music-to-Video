@@ -10,6 +10,7 @@
 		261050A31C953C1ACDD1DEC8 /* Pods_Add_Music_to_Video.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A41502BA43828D1EA86611 /* Pods_Add_Music_to_Video.framework */; };
 		CE846CC62DA8018100BFF572 /* VideoStreamingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE846CC52DA8018100BFF572 /* VideoStreamingVC.xib */; };
 		CE846CC72DA8018100BFF572 /* VideoStreamingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE846CC42DA8018100BFF572 /* VideoStreamingVC.swift */; };
+		CEA8E2B52DD4CF810035C26D /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = CEA8E2B42DD4CF810035C26D /* Reachability */; };
 		E82AFC9F2AD5A7A4001F6D34 /* aiEffectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AFC9E2AD5A7A4001F6D34 /* aiEffectsVC.swift */; };
 		E82AFCA12AD5A833001F6D34 /* filterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AFCA02AD5A833001F6D34 /* filterVC.swift */; };
 		E82AFCA32AD5A84A001F6D34 /* fontsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82AFCA22AD5A84A001F6D34 /* fontsVC.swift */; };
@@ -78,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				261050A31C953C1ACDD1DEC8 /* Pods_Add_Music_to_Video.framework in Frameworks */,
+				CEA8E2B52DD4CF810035C26D /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +314,9 @@
 				Base,
 			);
 			mainGroup = E8BAEBC42A83FA9F00A79B53;
+			packageReferences = (
+				CEA8E2B32DD4CF810035C26D /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+			);
 			productRefGroup = E8BAEBCE2A83FA9F00A79B53 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -620,6 +625,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEA8E2B32DD4CF810035C26D /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEA8E2B42DD4CF810035C26D /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEA8E2B32DD4CF810035C26D /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			productName = Reachability;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E8BAEBC52A83FA9F00A79B53 /* Project object */;
 }

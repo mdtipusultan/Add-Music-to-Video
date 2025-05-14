@@ -7,5 +7,4 @@ target 'Add Music to Video' do
 
   # Pods for Add Music to Video
 pod 'Google-Mobile-Ads-SDK', '~> 10.10.0'
-pod 'ReachabilitySwift'
 end

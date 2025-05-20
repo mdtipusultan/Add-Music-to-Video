@@ -1,0 +1,15 @@
+{
+  "originHash" : "ba4a917e71da64e2d2207989eefb08aa2e17fa6f7dc37021facc0a7420e96106",
+  "pins" : [
+    {
+      "identity" : "reachability.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ashleymills/Reachability.swift.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "21d1dc412cfecbe6e34f1f4c4eb88d3f912654a6"
+      }
+    }
+  ],
+  "version" : 3
+}

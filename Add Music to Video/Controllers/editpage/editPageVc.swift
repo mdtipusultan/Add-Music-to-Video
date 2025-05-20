@@ -124,11 +124,24 @@ class editPageVc: UIViewController, CanvasVCDelegate {
         }
     }
     
+//    func timeString(from seconds: Double) -> String {
+//        let minutes = Int(seconds) / 60
+//        let remainingSeconds = Int(seconds) % 60
+//        return String(format: "%02d:%02d", minutes, remainingSeconds)
+//    }
+    
     func timeString(from seconds: Double) -> String {
-        let minutes = Int(seconds) / 60
-        let remainingSeconds = Int(seconds) % 60
+        guard seconds.isFinite && !seconds.isNaN else {
+            return "00:00"
+        }
+
+        let totalSeconds = Int(seconds)
+        let minutes = totalSeconds / 60
+        let remainingSeconds = totalSeconds % 60
+
         return String(format: "%02d:%02d", minutes, remainingSeconds)
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CanvasVC" {
